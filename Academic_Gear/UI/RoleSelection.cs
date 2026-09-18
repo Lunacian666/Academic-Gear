@@ -55,6 +55,9 @@ namespace UI
             btnAdmin.BackColor = Color.LightGray;
         }
 
-
+        private void RoleSelection_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

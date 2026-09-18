@@ -49,10 +49,10 @@ namespace UI
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
 
-                // Proceed to main application window
-                // MainDashboard dashboard = new MainDashboard();
-                // dashboard.Show();
-                // this.Hide();
+                // Open Dashboard and hide current login form
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+                this.Hide();
             }
             else
             {
@@ -61,7 +61,6 @@ namespace UI
                                 "Login Failed",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-
 
                 txtPassword.Clear();
                 txtPassword.Focus();
@@ -76,6 +75,11 @@ namespace UI
 
             // Close current LogInAdmin form cleanly
             this.Close();
+        }
+
+        private void LogIn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
     
