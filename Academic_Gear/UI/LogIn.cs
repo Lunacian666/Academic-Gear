@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form1 : Form
+    public partial class LogInAdmin : Form
     {
-        public Form1()
+        public LogInAdmin()
         {
             InitializeComponent();
         }
