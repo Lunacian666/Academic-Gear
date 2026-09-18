@@ -35,6 +35,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
+            this.lblAcademicGear = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -47,12 +48,13 @@
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "<-Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnLogIn
             // 
             this.btnLogIn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnLogIn.ForeColor = System.Drawing.Color.Black;
-            this.btnLogIn.Location = new System.Drawing.Point(303, 338);
+            this.btnLogIn.Location = new System.Drawing.Point(297, 338);
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(271, 35);
@@ -65,7 +67,7 @@
             // 
             this.lblLogIn.AutoSize = true;
             this.lblLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogIn.Location = new System.Drawing.Point(355, 137);
+            this.lblLogIn.Location = new System.Drawing.Point(362, 154);
             this.lblLogIn.Name = "lblLogIn";
             this.lblLogIn.Size = new System.Drawing.Size(137, 20);
             this.lblLogIn.TabIndex = 2;
@@ -107,12 +109,25 @@
             this.lblPass.TabIndex = 7;
             this.lblPass.Text = "Password";
             // 
+            // lblAcademicGear
+            // 
+            this.lblAcademicGear.AutoSize = true;
+            this.lblAcademicGear.BackColor = System.Drawing.Color.Transparent;
+            this.lblAcademicGear.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcademicGear.Location = new System.Drawing.Point(324, 101);
+            this.lblAcademicGear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAcademicGear.Name = "lblAcademicGear";
+            this.lblAcademicGear.Size = new System.Drawing.Size(222, 40);
+            this.lblAcademicGear.TabIndex = 8;
+            this.lblAcademicGear.Text = "Academic Gear";
+            // 
             // LogInAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(869, 570);
+            this.Controls.Add(this.lblAcademicGear);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtPassword);
@@ -138,5 +153,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPass;
+        private System.Windows.Forms.Label lblAcademicGear;
     }
 }
