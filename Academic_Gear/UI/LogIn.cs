@@ -12,10 +12,18 @@ namespace UI
 {
     public partial class LogInAdmin : Form
     {
+        private string currentRole;
         public LogInAdmin()
         {
             InitializeComponent();
             txtPassword.UseSystemPasswordChar = true;
+        }
+        public LogInAdmin(string role) : this()
+        {
+            currentRole = role;
+
+            // Optional: Update title label dynamically if you have one
+            // lblTitle.Text = $"Log in as {currentRole}";
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
@@ -58,6 +66,16 @@ namespace UI
                 txtPassword.Clear();
                 txtPassword.Focus();
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            // Create and show RoleSelection
+            RoleSelection roleForm = new RoleSelection();
+            roleForm.Show();
+
+            // Close current LogInAdmin form cleanly
+            this.Close();
         }
     }
     
