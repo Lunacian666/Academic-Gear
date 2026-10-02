@@ -46,6 +46,7 @@
             this.btnStockAvailability = new System.Windows.Forms.Button();
             this.btnSalesHistory = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
+            this.lblWelcomeAdmin = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +147,7 @@
             this.btnProductManagement.Text = "Product Management";
             this.btnProductManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductManagement.UseVisualStyleBackColor = true;
+            this.btnProductManagement.Click += new System.EventHandler(this.btnProductManagement_Click);
             // 
             // btnHome
             // 
@@ -290,11 +292,22 @@
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.UseVisualStyleBackColor = true;
             // 
+            // lblWelcomeAdmin
+            // 
+            this.lblWelcomeAdmin.AutoSize = true;
+            this.lblWelcomeAdmin.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeAdmin.Location = new System.Drawing.Point(344, 65);
+            this.lblWelcomeAdmin.Name = "lblWelcomeAdmin";
+            this.lblWelcomeAdmin.Size = new System.Drawing.Size(254, 41);
+            this.lblWelcomeAdmin.TabIndex = 2;
+            this.lblWelcomeAdmin.Text = "Welcome Admin";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 436);
+            this.Controls.Add(this.lblWelcomeAdmin);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -305,6 +318,7 @@
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -328,5 +342,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnArrowDown;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblWelcomeAdmin;
     }
 }

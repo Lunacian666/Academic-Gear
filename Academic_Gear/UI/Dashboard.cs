@@ -73,7 +73,14 @@ namespace UI
             }
         }
 
+        private void btnProductManagement_Click(object sender, EventArgs e)
+        {
+            ProductManagement productForm = new ProductManagement();
 
+            productForm.Show();
+
+            this.Hide();
+        }
     }
     
 }

@@ -17,7 +17,7 @@ namespace UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            Application.Run(new ProductManagement());
+            Application.Run(new RoleSelection());
            
         }
     }
