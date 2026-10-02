@@ -64,6 +64,12 @@
     <Compile Include="ProductManagement.Designer.cs">
       <DependentUpon>ProductManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductRegistrations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductRegistrations.Designer.cs">
+      <DependentUpon>ProductRegistrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoleSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductManagement.resx">
       <DependentUpon>ProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductRegistrations.resx">
+      <DependentUpon>ProductRegistrations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoleSelection.resx">
       <DependentUpon>RoleSelection.cs</DependentUpon>
