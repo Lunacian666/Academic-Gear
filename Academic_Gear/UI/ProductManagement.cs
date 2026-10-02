@@ -29,5 +29,12 @@ namespace UI
 
             this.Close();
         }
+
+        private void btnAddNewProduct_Click(object sender, EventArgs e)
+        {
+            ProductRegistrations registrationForm = new ProductRegistrations();
+            registrationForm.Show();
+            this.Hide();
+        }
     }
 }
