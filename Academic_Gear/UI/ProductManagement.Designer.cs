@@ -252,6 +252,7 @@
             this.btnAddNewProduct.TabIndex = 22;
             this.btnAddNewProduct.Text = "+ Add New Product";
             this.btnAddNewProduct.UseVisualStyleBackColor = true;
+            this.btnAddNewProduct.Click += new System.EventHandler(this.btnAddNewProduct_Click);
             // 
             // label1
             // 
@@ -287,7 +288,7 @@
             this.Controls.Add(this.txtSearchProduct);
             this.Controls.Add(this.dgvProductManagement);
             this.Controls.Add(this.panelTop);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductManagement";
             this.Text = "ProductManagement";
             this.Load += new System.EventHandler(this.ProductManagement_Load);
