@@ -92,14 +92,6 @@ namespace UI
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            RoleSelection roleForm = new RoleSelection();
-            roleForm.Show();
-
-            this.Hide();
-        }
-
         private void LogIn_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
