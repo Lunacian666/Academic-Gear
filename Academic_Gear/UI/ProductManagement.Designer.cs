@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnArrowDown = new System.Windows.Forms.Button();
             this.lblAdministrator = new System.Windows.Forms.Label();
-            this.lblProductManagement = new System.Windows.Forms.Label();
+            this.lblInventoryManagement = new System.Windows.Forms.Label();
             this.lblAdminAcc = new System.Windows.Forms.Label();
             this.dgvProductManagement = new System.Windows.Forms.DataGridView();
             this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,60 +54,42 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.Silver;
-            this.panelTop.Controls.Add(this.btnArrowDown);
             this.panelTop.Controls.Add(this.lblAdministrator);
-            this.panelTop.Controls.Add(this.lblProductManagement);
+            this.panelTop.Controls.Add(this.lblInventoryManagement);
             this.panelTop.Controls.Add(this.lblAdminAcc);
             this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(2);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(806, 41);
+            this.panelTop.Size = new System.Drawing.Size(1134, 50);
             this.panelTop.TabIndex = 4;
-            // 
-            // btnArrowDown
-            // 
-            this.btnArrowDown.FlatAppearance.BorderSize = 0;
-            this.btnArrowDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArrowDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArrowDown.Location = new System.Drawing.Point(775, 7);
-            this.btnArrowDown.Margin = new System.Windows.Forms.Padding(2);
-            this.btnArrowDown.Name = "btnArrowDown";
-            this.btnArrowDown.Size = new System.Drawing.Size(27, 24);
-            this.btnArrowDown.TabIndex = 12;
-            this.btnArrowDown.Text = "V";
-            this.btnArrowDown.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArrowDown.UseVisualStyleBackColor = true;
             // 
             // lblAdministrator
             // 
             this.lblAdministrator.AutoSize = true;
             this.lblAdministrator.Font = new System.Drawing.Font("Perpetua Titling MT", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrator.Location = new System.Drawing.Point(688, 20);
-            this.lblAdministrator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAdministrator.Location = new System.Drawing.Point(1003, 27);
             this.lblAdministrator.Name = "lblAdministrator";
-            this.lblAdministrator.Size = new System.Drawing.Size(92, 12);
+            this.lblAdministrator.Size = new System.Drawing.Size(108, 15);
             this.lblAdministrator.TabIndex = 3;
             this.lblAdministrator.Text = "Administrator";
             // 
-            // lblProductManagement
+            // lblInventoryManagement
             // 
-            this.lblProductManagement.AutoSize = true;
-            this.lblProductManagement.Font = new System.Drawing.Font("Britannic Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductManagement.Location = new System.Drawing.Point(24, 9);
-            this.lblProductManagement.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblProductManagement.Name = "lblProductManagement";
-            this.lblProductManagement.Size = new System.Drawing.Size(218, 25);
-            this.lblProductManagement.TabIndex = 0;
-            this.lblProductManagement.Text = "Product Management";
+            this.lblInventoryManagement.AutoSize = true;
+            this.lblInventoryManagement.Font = new System.Drawing.Font("Britannic Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventoryManagement.Location = new System.Drawing.Point(32, 11);
+            this.lblInventoryManagement.Name = "lblInventoryManagement";
+            this.lblInventoryManagement.Size = new System.Drawing.Size(296, 31);
+            this.lblInventoryManagement.TabIndex = 0;
+            this.lblInventoryManagement.Text = "Inventory Management";
             // 
             // lblAdminAcc
             // 
             this.lblAdminAcc.AutoSize = true;
             this.lblAdminAcc.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminAcc.Location = new System.Drawing.Point(687, 5);
-            this.lblAdminAcc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAdminAcc.Location = new System.Drawing.Point(1002, 8);
             this.lblAdminAcc.Name = "lblAdminAcc";
-            this.lblAdminAcc.Size = new System.Drawing.Size(93, 17);
+            this.lblAdminAcc.Size = new System.Drawing.Size(112, 21);
             this.lblAdminAcc.TabIndex = 2;
             this.lblAdminAcc.Text = "AdminAcc";
             // 
@@ -124,12 +105,12 @@
             this.View,
             this.Edit,
             this.Delete});
-            this.dgvProductManagement.Location = new System.Drawing.Point(0, 80);
-            this.dgvProductManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvProductManagement.Location = new System.Drawing.Point(38, 109);
+            this.dgvProductManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProductManagement.Name = "dgvProductManagement";
             this.dgvProductManagement.RowHeadersWidth = 51;
             this.dgvProductManagement.RowTemplate.Height = 24;
-            this.dgvProductManagement.Size = new System.Drawing.Size(802, 377);
+            this.dgvProductManagement.Size = new System.Drawing.Size(1054, 550);
             this.dgvProductManagement.TabIndex = 18;
             // 
             // ProductCode
@@ -191,19 +172,19 @@
             // txtSearchProduct
             // 
             this.txtSearchProduct.ForeColor = System.Drawing.Color.Silver;
-            this.txtSearchProduct.Location = new System.Drawing.Point(144, 53);
-            this.txtSearchProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearchProduct.Location = new System.Drawing.Point(192, 69);
+            this.txtSearchProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchProduct.Name = "txtSearchProduct";
-            this.txtSearchProduct.Size = new System.Drawing.Size(126, 20);
+            this.txtSearchProduct.Size = new System.Drawing.Size(167, 22);
             this.txtSearchProduct.TabIndex = 19;
             this.txtSearchProduct.Text = "Search by product name...";
             // 
             // btnSearchPN
             // 
-            this.btnSearchPN.Location = new System.Drawing.Point(274, 52);
-            this.btnSearchPN.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearchPN.Location = new System.Drawing.Point(365, 66);
+            this.btnSearchPN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearchPN.Name = "btnSearchPN";
-            this.btnSearchPN.Size = new System.Drawing.Size(62, 23);
+            this.btnSearchPN.Size = new System.Drawing.Size(83, 28);
             this.btnSearchPN.TabIndex = 20;
             this.btnSearchPN.Text = "Search";
             this.btnSearchPN.UseVisualStyleBackColor = true;
@@ -212,19 +193,19 @@
             // 
             this.cmbCategories.ForeColor = System.Drawing.Color.Silver;
             this.cmbCategories.FormattingEnabled = true;
-            this.cmbCategories.Location = new System.Drawing.Point(566, 50);
-            this.cmbCategories.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbCategories.Location = new System.Drawing.Point(773, 69);
+            this.cmbCategories.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCategories.Name = "cmbCategories";
-            this.cmbCategories.Size = new System.Drawing.Size(102, 21);
+            this.cmbCategories.Size = new System.Drawing.Size(135, 24);
             this.cmbCategories.TabIndex = 21;
             this.cmbCategories.Text = "Select Category";
             // 
             // btnAddNewProduct
             // 
-            this.btnAddNewProduct.Location = new System.Drawing.Point(672, 49);
-            this.btnAddNewProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddNewProduct.Location = new System.Drawing.Point(929, 65);
+            this.btnAddNewProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddNewProduct.Name = "btnAddNewProduct";
-            this.btnAddNewProduct.Size = new System.Drawing.Size(122, 26);
+            this.btnAddNewProduct.Size = new System.Drawing.Size(163, 32);
             this.btnAddNewProduct.TabIndex = 22;
             this.btnAddNewProduct.Text = "+ Add New Product";
             this.btnAddNewProduct.UseVisualStyleBackColor = true;
@@ -233,19 +214,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(546, 393);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(728, 484);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 23;
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(11, 50);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Location = new System.Drawing.Point(15, 62);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(85, 25);
+            this.btnBack.Size = new System.Drawing.Size(113, 31);
             this.btnBack.TabIndex = 24;
             this.btnBack.Text = "<-Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -253,9 +233,9 @@
             // 
             // ProductManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 479);
+            this.ClientSize = new System.Drawing.Size(1133, 670);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddNewProduct);
@@ -264,7 +244,7 @@
             this.Controls.Add(this.txtSearchProduct);
             this.Controls.Add(this.dgvProductManagement);
             this.Controls.Add(this.panelTop);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ProductManagement";
             this.Text = "ProductManagement";
             this.Load += new System.EventHandler(this.ProductManagement_Load);
@@ -278,9 +258,8 @@
 
         #endregion
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Button btnArrowDown;
         private System.Windows.Forms.Label lblAdministrator;
-        private System.Windows.Forms.Label lblProductManagement;
+        private System.Windows.Forms.Label lblInventoryManagement;
         private System.Windows.Forms.Label lblAdminAcc;
         private System.Windows.Forms.DataGridView dgvProductManagement;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
