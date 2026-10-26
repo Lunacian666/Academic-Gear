@@ -32,18 +32,17 @@
             this.lblAdministrator = new System.Windows.Forms.Label();
             this.lblHome = new System.Windows.Forms.Label();
             this.lblAdminAcc = new System.Windows.Forms.Label();
-            this.btnProductManagement = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnManageAccount = new System.Windows.Forms.Button();
-            this.btnInventoryManagement = new System.Windows.Forms.Button();
-            this.btnSupplier = new System.Windows.Forms.Button();
-            this.btnStockAvailability = new System.Windows.Forms.Button();
-            this.btnSalesHistory = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
             this.lblWelcomeAdmin = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +75,7 @@
             this.lblHome.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHome.Location = new System.Drawing.Point(63, 16);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(102, 37);
+            this.lblHome.Size = new System.Drawing.Size(100, 37);
             this.lblHome.TabIndex = 0;
             this.lblHome.Text = "Home";
             // 
@@ -90,48 +89,18 @@
             this.lblAdminAcc.TabIndex = 2;
             this.lblAdminAcc.Text = "AdminAcc";
             // 
-            // btnProductManagement
-            // 
-            this.btnProductManagement.FlatAppearance.BorderSize = 0;
-            this.btnProductManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductManagement.Location = new System.Drawing.Point(3, 86);
-            this.btnProductManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnProductManagement.Name = "btnProductManagement";
-            this.btnProductManagement.Size = new System.Drawing.Size(261, 39);
-            this.btnProductManagement.TabIndex = 4;
-            this.btnProductManagement.Text = "Product Management";
-            this.btnProductManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductManagement.UseVisualStyleBackColor = true;
-            this.btnProductManagement.Click += new System.EventHandler(this.btnProductManagement_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(3, 37);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(261, 36);
-            this.btnHome.TabIndex = 2;
-            this.btnHome.Text = "Home";
-            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.UseVisualStyleBackColor = true;
-            // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelLeft.Controls.Add(this.button1);
             this.panelLeft.Controls.Add(this.label2);
+            this.panelLeft.Controls.Add(this.button2);
             this.panelLeft.Controls.Add(this.btnLogout);
-            this.panelLeft.Controls.Add(this.btnManageAccount);
-            this.panelLeft.Controls.Add(this.btnInventoryManagement);
-            this.panelLeft.Controls.Add(this.btnSupplier);
-            this.panelLeft.Controls.Add(this.btnStockAvailability);
-            this.panelLeft.Controls.Add(this.btnSalesHistory);
-            this.panelLeft.Controls.Add(this.btnReports);
-            this.panelLeft.Controls.Add(this.btnProductManagement);
-            this.panelLeft.Controls.Add(this.btnHome);
+            this.panelLeft.Controls.Add(this.button3);
+            this.panelLeft.Controls.Add(this.button7);
+            this.panelLeft.Controls.Add(this.button4);
+            this.panelLeft.Controls.Add(this.button6);
+            this.panelLeft.Controls.Add(this.button5);
             this.panelLeft.Location = new System.Drawing.Point(0, 55);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLeft.Name = "panelLeft";
@@ -163,90 +132,6 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnManageAccount
-            // 
-            this.btnManageAccount.FlatAppearance.BorderSize = 0;
-            this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageAccount.Location = new System.Drawing.Point(3, 405);
-            this.btnManageAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnManageAccount.Name = "btnManageAccount";
-            this.btnManageAccount.Size = new System.Drawing.Size(261, 43);
-            this.btnManageAccount.TabIndex = 10;
-            this.btnManageAccount.Text = "Manage Account";
-            this.btnManageAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageAccount.UseVisualStyleBackColor = true;
-            // 
-            // btnInventoryManagement
-            // 
-            this.btnInventoryManagement.FlatAppearance.BorderSize = 0;
-            this.btnInventoryManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventoryManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventoryManagement.Location = new System.Drawing.Point(3, 356);
-            this.btnInventoryManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInventoryManagement.Name = "btnInventoryManagement";
-            this.btnInventoryManagement.Size = new System.Drawing.Size(261, 34);
-            this.btnInventoryManagement.TabIndex = 9;
-            this.btnInventoryManagement.Text = "Inventory Management";
-            this.btnInventoryManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventoryManagement.UseVisualStyleBackColor = true;
-            // 
-            // btnSupplier
-            // 
-            this.btnSupplier.FlatAppearance.BorderSize = 0;
-            this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupplier.Location = new System.Drawing.Point(3, 298);
-            this.btnSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(261, 38);
-            this.btnSupplier.TabIndex = 8;
-            this.btnSupplier.Text = "Supplier";
-            this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupplier.UseVisualStyleBackColor = true;
-            // 
-            // btnStockAvailability
-            // 
-            this.btnStockAvailability.FlatAppearance.BorderSize = 0;
-            this.btnStockAvailability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStockAvailability.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockAvailability.Location = new System.Drawing.Point(4, 246);
-            this.btnStockAvailability.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnStockAvailability.Name = "btnStockAvailability";
-            this.btnStockAvailability.Size = new System.Drawing.Size(259, 33);
-            this.btnStockAvailability.TabIndex = 7;
-            this.btnStockAvailability.Text = "Stock Availability";
-            this.btnStockAvailability.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStockAvailability.UseVisualStyleBackColor = true;
-            // 
-            // btnSalesHistory
-            // 
-            this.btnSalesHistory.FlatAppearance.BorderSize = 0;
-            this.btnSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalesHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalesHistory.Location = new System.Drawing.Point(5, 190);
-            this.btnSalesHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSalesHistory.Name = "btnSalesHistory";
-            this.btnSalesHistory.Size = new System.Drawing.Size(259, 37);
-            this.btnSalesHistory.TabIndex = 6;
-            this.btnSalesHistory.Text = "Sales History";
-            this.btnSalesHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalesHistory.UseVisualStyleBackColor = true;
-            // 
-            // btnReports
-            // 
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReports.Location = new System.Drawing.Point(2, 136);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(261, 37);
-            this.btnReports.TabIndex = 5;
-            this.btnReports.Text = "Reports";
-            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.UseVisualStyleBackColor = true;
-            // 
             // lblWelcomeAdmin
             // 
             this.lblWelcomeAdmin.AutoSize = true;
@@ -257,6 +142,104 @@
             this.lblWelcomeAdmin.Size = new System.Drawing.Size(317, 52);
             this.lblWelcomeAdmin.TabIndex = 2;
             this.lblWelcomeAdmin.Text = "Welcome Admin";
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(4, 399);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(261, 43);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Manage Account";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(4, 344);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(261, 38);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Supplier";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(5, 282);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(259, 33);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Stock Availability";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(6, 220);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(259, 37);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Sales History";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(3, 158);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(261, 37);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Reports";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(4, 94);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(261, 39);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "Inventory Management";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(4, 37);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(261, 36);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "Home";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // Dashboard
             // 
@@ -282,19 +265,18 @@
 
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label lblHome;
-        private System.Windows.Forms.Button btnProductManagement;
-        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Button btnReports;
-        private System.Windows.Forms.Button btnSalesHistory;
-        private System.Windows.Forms.Button btnStockAvailability;
-        private System.Windows.Forms.Button btnSupplier;
-        private System.Windows.Forms.Button btnInventoryManagement;
-        private System.Windows.Forms.Button btnManageAccount;
         private System.Windows.Forms.Label lblAdminAcc;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblAdministrator;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblWelcomeAdmin;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
     }
 }
