@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnArrowDown = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblAdministrator = new System.Windows.Forms.Label();
             this.lblProductManagement = new System.Windows.Forms.Label();
             this.lblAdminAcc = new System.Windows.Forms.Label();
@@ -57,9 +55,7 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.Silver;
-            this.panelTop.Controls.Add(this.btnSearch);
             this.panelTop.Controls.Add(this.btnArrowDown);
-            this.panelTop.Controls.Add(this.txtSearch);
             this.panelTop.Controls.Add(this.lblAdministrator);
             this.panelTop.Controls.Add(this.lblProductManagement);
             this.panelTop.Controls.Add(this.lblAdminAcc);
@@ -68,16 +64,6 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(806, 41);
             this.panelTop.TabIndex = 4;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(395, 11);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(57, 20);
-            this.btnSearch.TabIndex = 13;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // btnArrowDown
             // 
@@ -92,16 +78,6 @@
             this.btnArrowDown.Text = "V";
             this.btnArrowDown.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnArrowDown.UseVisualStyleBackColor = true;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.ForeColor = System.Drawing.Color.Silver;
-            this.txtSearch.Location = new System.Drawing.Point(279, 12);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 10;
-            this.txtSearch.Text = "Search anything...";
             // 
             // lblAdministrator
             // 
@@ -302,9 +278,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnArrowDown;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblAdministrator;
         private System.Windows.Forms.Label lblProductManagement;
         private System.Windows.Forms.Label lblAdminAcc;
