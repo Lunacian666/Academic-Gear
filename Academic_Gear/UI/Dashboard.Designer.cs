@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnArrowDown = new System.Windows.Forms.Button();
             this.lblAdministrator = new System.Windows.Forms.Label();
             this.lblHome = new System.Windows.Forms.Label();
             this.lblAdminAcc = new System.Windows.Forms.Label();
@@ -52,49 +51,32 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.Silver;
-            this.panelTop.Controls.Add(this.btnArrowDown);
             this.panelTop.Controls.Add(this.lblAdministrator);
             this.panelTop.Controls.Add(this.lblHome);
             this.panelTop.Controls.Add(this.lblAdminAcc);
-            this.panelTop.Location = new System.Drawing.Point(-2, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(2);
+            this.panelTop.Location = new System.Drawing.Point(-3, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(779, 45);
+            this.panelTop.Size = new System.Drawing.Size(1260, 72);
             this.panelTop.TabIndex = 0;
-            // 
-            // btnArrowDown
-            // 
-            this.btnArrowDown.FlatAppearance.BorderSize = 0;
-            this.btnArrowDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArrowDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArrowDown.Location = new System.Drawing.Point(747, 7);
-            this.btnArrowDown.Margin = new System.Windows.Forms.Padding(2);
-            this.btnArrowDown.Name = "btnArrowDown";
-            this.btnArrowDown.Size = new System.Drawing.Size(22, 29);
-            this.btnArrowDown.TabIndex = 12;
-            this.btnArrowDown.Text = "V";
-            this.btnArrowDown.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArrowDown.UseVisualStyleBackColor = true;
             // 
             // lblAdministrator
             // 
             this.lblAdministrator.AutoSize = true;
             this.lblAdministrator.Font = new System.Drawing.Font("Perpetua Titling MT", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrator.Location = new System.Drawing.Point(659, 24);
-            this.lblAdministrator.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAdministrator.Location = new System.Drawing.Point(1106, 38);
             this.lblAdministrator.Name = "lblAdministrator";
-            this.lblAdministrator.Size = new System.Drawing.Size(92, 12);
+            this.lblAdministrator.Size = new System.Drawing.Size(108, 15);
             this.lblAdministrator.TabIndex = 3;
             this.lblAdministrator.Text = "Administrator";
             // 
             // lblHome
             // 
             this.lblHome.AutoSize = true;
-            this.lblHome.Font = new System.Drawing.Font("Britannic Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHome.Location = new System.Drawing.Point(32, 11);
-            this.lblHome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHome.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHome.Location = new System.Drawing.Point(63, 16);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(67, 25);
+            this.lblHome.Size = new System.Drawing.Size(102, 37);
             this.lblHome.TabIndex = 0;
             this.lblHome.Text = "Home";
             // 
@@ -102,10 +84,9 @@
             // 
             this.lblAdminAcc.AutoSize = true;
             this.lblAdminAcc.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminAcc.Location = new System.Drawing.Point(657, 7);
-            this.lblAdminAcc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAdminAcc.Location = new System.Drawing.Point(1105, 16);
             this.lblAdminAcc.Name = "lblAdminAcc";
-            this.lblAdminAcc.Size = new System.Drawing.Size(93, 17);
+            this.lblAdminAcc.Size = new System.Drawing.Size(112, 21);
             this.lblAdminAcc.TabIndex = 2;
             this.lblAdminAcc.Text = "AdminAcc";
             // 
@@ -113,11 +94,11 @@
             // 
             this.btnProductManagement.FlatAppearance.BorderSize = 0;
             this.btnProductManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductManagement.Location = new System.Drawing.Point(2, 54);
-            this.btnProductManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.btnProductManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductManagement.Location = new System.Drawing.Point(3, 86);
+            this.btnProductManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProductManagement.Name = "btnProductManagement";
-            this.btnProductManagement.Size = new System.Drawing.Size(196, 25);
+            this.btnProductManagement.Size = new System.Drawing.Size(261, 39);
             this.btnProductManagement.TabIndex = 4;
             this.btnProductManagement.Text = "Product Management";
             this.btnProductManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -128,11 +109,11 @@
             // 
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(2, 20);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(3, 37);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(196, 29);
+            this.btnHome.Size = new System.Drawing.Size(261, 36);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -151,10 +132,10 @@
             this.panelLeft.Controls.Add(this.btnReports);
             this.panelLeft.Controls.Add(this.btnProductManagement);
             this.panelLeft.Controls.Add(this.btnHome);
-            this.panelLeft.Location = new System.Drawing.Point(0, 45);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLeft.Location = new System.Drawing.Point(0, 55);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(200, 390);
+            this.panelLeft.Size = new System.Drawing.Size(267, 563);
             this.panelLeft.TabIndex = 1;
             // 
             // label2
@@ -162,10 +143,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(16, 327);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(12, 453);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 20);
+            this.label2.Size = new System.Drawing.Size(222, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "------------------------------";
             // 
@@ -173,11 +153,11 @@
             // 
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(9, 356);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(12, 496);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(62, 25);
+            this.btnLogout.Size = new System.Drawing.Size(83, 31);
             this.btnLogout.TabIndex = 11;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -187,11 +167,11 @@
             // 
             this.btnManageAccount.FlatAppearance.BorderSize = 0;
             this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageAccount.Location = new System.Drawing.Point(2, 289);
-            this.btnManageAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnManageAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageAccount.Location = new System.Drawing.Point(3, 405);
+            this.btnManageAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageAccount.Name = "btnManageAccount";
-            this.btnManageAccount.Size = new System.Drawing.Size(196, 35);
+            this.btnManageAccount.Size = new System.Drawing.Size(261, 43);
             this.btnManageAccount.TabIndex = 10;
             this.btnManageAccount.Text = "Manage Account";
             this.btnManageAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -201,11 +181,11 @@
             // 
             this.btnInventoryManagement.FlatAppearance.BorderSize = 0;
             this.btnInventoryManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventoryManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventoryManagement.Location = new System.Drawing.Point(2, 253);
-            this.btnInventoryManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInventoryManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventoryManagement.Location = new System.Drawing.Point(3, 356);
+            this.btnInventoryManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInventoryManagement.Name = "btnInventoryManagement";
-            this.btnInventoryManagement.Size = new System.Drawing.Size(196, 24);
+            this.btnInventoryManagement.Size = new System.Drawing.Size(261, 34);
             this.btnInventoryManagement.TabIndex = 9;
             this.btnInventoryManagement.Text = "Inventory Management";
             this.btnInventoryManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,11 +195,11 @@
             // 
             this.btnSupplier.FlatAppearance.BorderSize = 0;
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupplier.Location = new System.Drawing.Point(2, 210);
-            this.btnSupplier.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupplier.Location = new System.Drawing.Point(3, 298);
+            this.btnSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(196, 31);
+            this.btnSupplier.Size = new System.Drawing.Size(261, 38);
             this.btnSupplier.TabIndex = 8;
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,11 +209,11 @@
             // 
             this.btnStockAvailability.FlatAppearance.BorderSize = 0;
             this.btnStockAvailability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStockAvailability.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockAvailability.Location = new System.Drawing.Point(4, 174);
-            this.btnStockAvailability.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStockAvailability.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStockAvailability.Location = new System.Drawing.Point(4, 246);
+            this.btnStockAvailability.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStockAvailability.Name = "btnStockAvailability";
-            this.btnStockAvailability.Size = new System.Drawing.Size(194, 23);
+            this.btnStockAvailability.Size = new System.Drawing.Size(259, 33);
             this.btnStockAvailability.TabIndex = 7;
             this.btnStockAvailability.Text = "Stock Availability";
             this.btnStockAvailability.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,11 +223,11 @@
             // 
             this.btnSalesHistory.FlatAppearance.BorderSize = 0;
             this.btnSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalesHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalesHistory.Location = new System.Drawing.Point(4, 133);
-            this.btnSalesHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalesHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalesHistory.Location = new System.Drawing.Point(5, 190);
+            this.btnSalesHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalesHistory.Name = "btnSalesHistory";
-            this.btnSalesHistory.Size = new System.Drawing.Size(194, 23);
+            this.btnSalesHistory.Size = new System.Drawing.Size(259, 37);
             this.btnSalesHistory.TabIndex = 6;
             this.btnSalesHistory.Text = "Sales History";
             this.btnSalesHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,11 +237,11 @@
             // 
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReports.Location = new System.Drawing.Point(2, 94);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.Location = new System.Drawing.Point(2, 136);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(196, 23);
+            this.btnReports.Size = new System.Drawing.Size(261, 37);
             this.btnReports.TabIndex = 5;
             this.btnReports.Text = "Reports";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -271,21 +251,22 @@
             // 
             this.lblWelcomeAdmin.AutoSize = true;
             this.lblWelcomeAdmin.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeAdmin.Location = new System.Drawing.Point(344, 65);
+            this.lblWelcomeAdmin.Location = new System.Drawing.Point(625, 92);
+            this.lblWelcomeAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcomeAdmin.Name = "lblWelcomeAdmin";
-            this.lblWelcomeAdmin.Size = new System.Drawing.Size(254, 41);
+            this.lblWelcomeAdmin.Size = new System.Drawing.Size(317, 52);
             this.lblWelcomeAdmin.TabIndex = 2;
             this.lblWelcomeAdmin.Text = "Welcome Admin";
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 436);
+            this.ClientSize = new System.Drawing.Size(1256, 614);
             this.Controls.Add(this.lblWelcomeAdmin);
-            this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Controls.Add(this.panelLeft);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.panelTop.ResumeLayout(false);
@@ -314,7 +295,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblAdministrator;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnArrowDown;
         private System.Windows.Forms.Label lblWelcomeAdmin;
     }
 }
