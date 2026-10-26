@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.lblLogIn = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -37,18 +36,6 @@
             this.lblPass = new System.Windows.Forms.Label();
             this.lblAcademicGear = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(13, 13);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(85, 25);
-            this.btnBack.TabIndex = 0;
-            this.btnBack.Text = "<-Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnLogIn
             // 
@@ -134,7 +121,6 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblLogIn);
             this.Controls.Add(this.btnLogIn);
-            this.Controls.Add(this.btnBack);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogInAdmin";
@@ -145,8 +131,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.Label lblLogIn;
         private System.Windows.Forms.TextBox txtUsername;
