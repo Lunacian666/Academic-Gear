@@ -58,6 +58,7 @@
             this.btnBack.TabIndex = 41;
             this.btnBack.Text = "<-Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnSave
             // 
@@ -92,6 +93,7 @@
             this.btnCancel.TabIndex = 39;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblProductCodeUnique
             // 
@@ -115,7 +117,7 @@
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(239, 25);
             this.cmbCategory.TabIndex = 36;
-            this.cmbCategory.Text = "Select category";
+            this.cmbCategory.Text = "Select Category";
             // 
             // txtQuantity
             // 
@@ -242,12 +244,13 @@
             // 
             this.cmbUnitPerMeasure.AccessibleDescription = "";
             this.cmbUnitPerMeasure.AccessibleName = "";
+            this.cmbUnitPerMeasure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnitPerMeasure.FormattingEnabled = true;
             this.cmbUnitPerMeasure.Location = new System.Drawing.Point(146, 419);
             this.cmbUnitPerMeasure.Name = "cmbUnitPerMeasure";
-            this.cmbUnitPerMeasure.Size = new System.Drawing.Size(239, 21);
+            this.cmbUnitPerMeasure.Size = new System.Drawing.Size(239, 24);
             this.cmbUnitPerMeasure.TabIndex = 44;
-            this.cmbUnitPerMeasure.Text = "Select Category --->";
+            this.cmbUnitPerMeasure.Text = "Select Category";
             // 
             // ProductRegistrations
             // 

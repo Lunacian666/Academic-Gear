@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Windows.Forms;
 using BusinessLogic.Repository;
 
@@ -24,7 +25,6 @@ namespace UI
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
-            // Check empty fields
             if (string.IsNullOrEmpty(username) ||
                 string.IsNullOrEmpty(password))
             {
@@ -33,7 +33,6 @@ namespace UI
                     "Missing Information",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-
                 return;
             }
 
@@ -41,10 +40,10 @@ namespace UI
             {
                 UserRepo userRepository = new UserRepo();
 
-                // Check username and password from Azure SQL
+                // Authenticate using Azure SQL database
                 string role = userRepository.Login(username, password);
 
-                if (role == null)
+                if (string.IsNullOrEmpty(role))
                 {
                     MessageBox.Show(
                         "Invalid Username or Password. Please try again.",
@@ -57,16 +56,41 @@ namespace UI
                     return;
                 }
 
-                // Check if user selected the correct role
+                role = role.Trim();
+
+                // Verify selected role
                 if (!string.IsNullOrEmpty(currentRole) &&
-                    !role.Equals(currentRole, StringComparison.OrdinalIgnoreCase))
+                    !role.Equals(currentRole,
+                        StringComparison.OrdinalIgnoreCase))
                 {
                     MessageBox.Show(
                         "This account does not match the selected role.",
                         "Wrong Role",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
+                    return;
+                }
 
+                Form dashboard;
+
+                // Redirect based on database role
+                if (role.Equals("Admin",
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    dashboard = new Dashboard();
+                }
+                else if (role.Equals("Cashier",
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    dashboard = new CashierDashboard();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Unknown account role: " + role,
+                        "Login Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                     return;
                 }
 
@@ -76,23 +100,21 @@ namespace UI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                // Open Dashboard
-                Dashboard dashboard = new Dashboard();
                 dashboard.Show();
-
                 this.Hide();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Unable to connect to the database.\n\n" + ex.Message,
-                    "Database Error",
+                    "Unable to complete login.\n\n" + ex.Message,
+                    "Login Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
 
-        private void LogIn_FormClosed(object sender, FormClosedEventArgs e)
+        private void LogIn_FormClosed(
+            object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }

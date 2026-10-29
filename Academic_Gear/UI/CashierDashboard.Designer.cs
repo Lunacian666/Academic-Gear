@@ -50,10 +50,9 @@
             // 
             this.lblWelcomeCashier.AutoSize = true;
             this.lblWelcomeCashier.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeCashier.Location = new System.Drawing.Point(625, 123);
-            this.lblWelcomeCashier.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWelcomeCashier.Location = new System.Drawing.Point(469, 100);
             this.lblWelcomeCashier.Name = "lblWelcomeCashier";
-            this.lblWelcomeCashier.Size = new System.Drawing.Size(330, 52);
+            this.lblWelcomeCashier.Size = new System.Drawing.Size(266, 41);
             this.lblWelcomeCashier.TabIndex = 5;
             this.lblWelcomeCashier.Text = "Welcome Cashier";
             // 
@@ -64,18 +63,19 @@
             this.panelTop.Controls.Add(this.lblHome);
             this.panelTop.Controls.Add(this.lblCashierAcc);
             this.panelTop.Location = new System.Drawing.Point(-1, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1260, 72);
+            this.panelTop.Size = new System.Drawing.Size(945, 58);
             this.panelTop.TabIndex = 3;
             // 
             // lblCashier
             // 
             this.lblCashier.AutoSize = true;
             this.lblCashier.Font = new System.Drawing.Font("Perpetua Titling MT", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCashier.Location = new System.Drawing.Point(1140, 38);
+            this.lblCashier.Location = new System.Drawing.Point(855, 31);
+            this.lblCashier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCashier.Name = "lblCashier";
-            this.lblCashier.Size = new System.Drawing.Size(57, 15);
+            this.lblCashier.Size = new System.Drawing.Size(47, 12);
             this.lblCashier.TabIndex = 3;
             this.lblCashier.Text = "Cashier";
             // 
@@ -83,9 +83,10 @@
             // 
             this.lblHome.AutoSize = true;
             this.lblHome.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHome.Location = new System.Drawing.Point(63, 16);
+            this.lblHome.Location = new System.Drawing.Point(47, 13);
+            this.lblHome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(100, 37);
+            this.lblHome.Size = new System.Drawing.Size(81, 30);
             this.lblHome.TabIndex = 0;
             this.lblHome.Text = "Home";
             // 
@@ -93,9 +94,10 @@
             // 
             this.lblCashierAcc.AutoSize = true;
             this.lblCashierAcc.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCashierAcc.Location = new System.Drawing.Point(1105, 16);
+            this.lblCashierAcc.Location = new System.Drawing.Point(829, 13);
+            this.lblCashierAcc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCashierAcc.Name = "lblCashierAcc";
-            this.lblCashierAcc.Size = new System.Drawing.Size(125, 21);
+            this.lblCashierAcc.Size = new System.Drawing.Size(103, 17);
             this.lblCashierAcc.TabIndex = 2;
             this.lblCashierAcc.Text = "CashierAcc";
             // 
@@ -110,10 +112,10 @@
             this.panelLeft.Controls.Add(this.btnSalesHistory);
             this.panelLeft.Controls.Add(this.btnPOS);
             this.panelLeft.Controls.Add(this.btnProduct);
-            this.panelLeft.Location = new System.Drawing.Point(1, 72);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelLeft.Location = new System.Drawing.Point(1, 58);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(267, 637);
+            this.panelLeft.Size = new System.Drawing.Size(200, 518);
             this.panelLeft.TabIndex = 4;
             // 
             // btnManageAccount
@@ -121,10 +123,10 @@
             this.btnManageAccount.FlatAppearance.BorderSize = 0;
             this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageAccount.Location = new System.Drawing.Point(5, 442);
-            this.btnManageAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnManageAccount.Location = new System.Drawing.Point(4, 359);
+            this.btnManageAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnManageAccount.Name = "btnManageAccount";
-            this.btnManageAccount.Size = new System.Drawing.Size(261, 43);
+            this.btnManageAccount.Size = new System.Drawing.Size(196, 35);
             this.btnManageAccount.TabIndex = 17;
             this.btnManageAccount.Text = "Manage Account";
             this.btnManageAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -135,9 +137,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(24, 506);
+            this.label2.Location = new System.Drawing.Point(18, 411);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 25);
+            this.label2.Size = new System.Drawing.Size(159, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "------------------------------";
             // 
@@ -146,23 +149,24 @@
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(11, 571);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Location = new System.Drawing.Point(8, 464);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(83, 31);
+            this.btnLogout.Size = new System.Drawing.Size(62, 25);
             this.btnLogout.TabIndex = 11;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnReceipt
             // 
             this.btnReceipt.FlatAppearance.BorderSize = 0;
             this.btnReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReceipt.Location = new System.Drawing.Point(3, 364);
-            this.btnReceipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReceipt.Location = new System.Drawing.Point(2, 296);
+            this.btnReceipt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReceipt.Name = "btnReceipt";
-            this.btnReceipt.Size = new System.Drawing.Size(259, 33);
+            this.btnReceipt.Size = new System.Drawing.Size(194, 27);
             this.btnReceipt.TabIndex = 15;
             this.btnReceipt.Text = "Receipt";
             this.btnReceipt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -173,10 +177,10 @@
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(4, 51);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHome.Location = new System.Drawing.Point(3, 41);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(261, 36);
+            this.btnHome.Size = new System.Drawing.Size(196, 29);
             this.btnHome.TabIndex = 11;
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,10 +191,10 @@
             this.btnSalesHistory.FlatAppearance.BorderSize = 0;
             this.btnSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalesHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalesHistory.Location = new System.Drawing.Point(3, 283);
-            this.btnSalesHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSalesHistory.Location = new System.Drawing.Point(2, 230);
+            this.btnSalesHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSalesHistory.Name = "btnSalesHistory";
-            this.btnSalesHistory.Size = new System.Drawing.Size(259, 37);
+            this.btnSalesHistory.Size = new System.Drawing.Size(194, 30);
             this.btnSalesHistory.TabIndex = 14;
             this.btnSalesHistory.Text = "Sales History";
             this.btnSalesHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -201,24 +205,25 @@
             this.btnPOS.FlatAppearance.BorderSize = 0;
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPOS.Location = new System.Drawing.Point(3, 123);
-            this.btnPOS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPOS.Location = new System.Drawing.Point(2, 100);
+            this.btnPOS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPOS.Name = "btnPOS";
-            this.btnPOS.Size = new System.Drawing.Size(261, 39);
+            this.btnPOS.Size = new System.Drawing.Size(196, 32);
             this.btnPOS.TabIndex = 12;
             this.btnPOS.Text = "Point of Sale";
             this.btnPOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPOS.UseVisualStyleBackColor = true;
+            this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // btnProduct
             // 
             this.btnProduct.FlatAppearance.BorderSize = 0;
             this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProduct.Location = new System.Drawing.Point(4, 202);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnProduct.Location = new System.Drawing.Point(3, 164);
+            this.btnProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(261, 37);
+            this.btnProduct.Size = new System.Drawing.Size(196, 30);
             this.btnProduct.TabIndex = 13;
             this.btnProduct.Text = "Product";
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,12 +231,13 @@
             // 
             // CashierDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 709);
+            this.ClientSize = new System.Drawing.Size(943, 576);
             this.Controls.Add(this.lblWelcomeCashier);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelLeft);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CashierDashboard";
             this.Text = "CashierDashboard";
             this.panelTop.ResumeLayout(false);

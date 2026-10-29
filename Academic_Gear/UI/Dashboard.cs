@@ -28,28 +28,6 @@ namespace UI
             lblHome.Focus();
         }
 
-        private void txtSearch_Enter(object sender, EventArgs e)
-        {
-            {
-                // Check using the actual control name (e.g., textBox1 or txtSearch)
-                TextBox txt = sender as TextBox;
-                if (txt != null && txt.Text == "Search anything...")
-                {
-                    txt.Text = "";
-                    txt.ForeColor = System.Drawing.Color.Black;
-                }
-            }
-        }
-
-            private void txtSearch_Leave(object sender, EventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-            if (txt != null && string.IsNullOrWhiteSpace(txt.Text))
-            {
-                txt.Text = "Search anything...";
-                txt.ForeColor = System.Drawing.Color.Gray;
-            }
-        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -75,10 +53,23 @@ namespace UI
 
         private void btnProductManagement_Click(object sender, EventArgs e)
         {
-            ProductManagement productForm = new ProductManagement();
+            InventoryManagement productForm = new InventoryManagement();
 
             productForm.Show();
 
+            this.Hide();
+        }
+
+        private void lblInventory_Click(object sender, EventArgs e)
+        {
+            InventoryManagement inventoryForm = new InventoryManagement();
+
+            inventoryForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            inventoryForm.Show();
             this.Hide();
         }
     }
