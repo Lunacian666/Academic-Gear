@@ -70,11 +70,11 @@
     <Compile Include="PointOfSale.Designer.cs">
       <DependentUpon>PointOfSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductManagement.cs">
+    <Compile Include="InventoryManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductManagement.Designer.cs">
-      <DependentUpon>ProductManagement.cs</DependentUpon>
+    <Compile Include="InventoryManagement.Designer.cs">
+      <DependentUpon>InventoryManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductRegistrations.cs">
       <SubType>Form</SubType>
@@ -114,8 +114,8 @@
     <EmbeddedResource Include="PointOfSale.resx">
       <DependentUpon>PointOfSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductManagement.resx">
-      <DependentUpon>ProductManagement.cs</DependentUpon>
+    <EmbeddedResource Include="InventoryManagement.resx">
+      <DependentUpon>InventoryManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductRegistrations.resx">
       <DependentUpon>ProductRegistrations.cs</DependentUpon>

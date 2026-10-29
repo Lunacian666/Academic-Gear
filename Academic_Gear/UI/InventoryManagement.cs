@@ -10,30 +10,28 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class ProductManagement : Form
+    public partial class InventoryManagement : Form
     {
-        public ProductManagement()
+        public InventoryManagement()
         {
             InitializeComponent();
         }
 
-        private void ProductManagement_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
-
             this.Close();
         }
 
         private void btnAddNewProduct_Click(object sender, EventArgs e)
         {
-            ProductRegistrations registrationForm = new ProductRegistrations();
-            registrationForm.Show();
+            ProductRegistrations productForm = new ProductRegistrations();
+
+            productForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+
+            productForm.Show();
             this.Hide();
         }
     }

@@ -49,10 +49,64 @@ namespace UI
             };
         }
 
-        private void btnBack_Click_1(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to reset all fields?",
+                "Confirm Reset",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                ResetFields(this);
+            }
+        }
+
+        private void ResetFields(Control control)
+        {
+            foreach (Control child in control.Controls)
+            {
+                if (child is TextBox textBox)
+                {
+                    // Restore original default text
+                    switch (textBox.Name)
+                    {
+                        case "txtPrice":
+                            textBox.Text = "Enter price";
+                            break;
+
+                        case "txtProductName":
+                            textBox.Text = "Enter product name";
+                            break;
+
+                        case "txtProductCode":
+                            textBox.Text = "Enter product code";
+                            break;
+
+                        case "txtQuantity":
+                            textBox.Text = "Enter quantity";
+                            break;
+                    }
+                }
+                else if (child is ComboBox comboBox)
+                {
+                    comboBox.SelectedIndex = -1;
+                    comboBox.Text = "Select Category";
+                }
+
+                // Handle controls inside panels and group boxes
+                if (child.HasChildren)
+                {
+                    ResetFields(child);
+                }
+            }
         }
     }
 }

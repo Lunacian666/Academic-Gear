@@ -16,5 +16,29 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void btnCancelSale_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to cancel the sale?",
+                "Cancel Sale",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+        
+
+        private void btnPrintReceipt_Click(object sender, EventArgs e)
+        {
+            Receipt receiptForm = new Receipt();
+
+            receiptForm.ShowDialog();
+
+        }
     }
 }
