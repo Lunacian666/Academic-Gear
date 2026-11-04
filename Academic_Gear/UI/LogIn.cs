@@ -12,7 +12,11 @@ namespace UI
         public LogInAdmin()
         {
             InitializeComponent();
+
             txtPassword.UseSystemPasswordChar = true;
+
+            this.FormClosed -= LogIn_FormClosed;
+            this.FormClosed += LogIn_FormClosed;
         }
 
         public LogInAdmin(string role) : this()
@@ -20,33 +24,35 @@ namespace UI
             currentRole = role;
         }
 
-        private void btnLogIn_Click(object sender, EventArgs e)
+        private void btnLogIn_Click(
+            object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
-            if (string.IsNullOrEmpty(username) ||
-                string.IsNullOrEmpty(password))
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show(
-                    "Please fill in both Username and Password fields.",
+                    "Please enter your username and password.",
                     "Missing Information",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
+
                 return;
             }
 
             try
             {
-                UserRepo userRepository = new UserRepo();
+                UserRepo userRepo = new UserRepo();
 
-                // Authenticate using Azure SQL database
-                string role = userRepository.Login(username, password);
+                string role = userRepo.Login(
+                    username, password);
 
                 if (string.IsNullOrEmpty(role))
                 {
                     MessageBox.Show(
-                        "Invalid Username or Password. Please try again.",
+                        "Invalid username or password.",
                         "Login Failed",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
@@ -58,7 +64,6 @@ namespace UI
 
                 role = role.Trim();
 
-                // Verify selected role
                 if (!string.IsNullOrEmpty(currentRole) &&
                     !role.Equals(currentRole,
                         StringComparison.OrdinalIgnoreCase))
@@ -68,12 +73,12 @@ namespace UI
                         "Wrong Role",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
+
                     return;
                 }
 
                 Form dashboard;
 
-                // Redirect based on database role
                 if (role.Equals("Admin",
                     StringComparison.OrdinalIgnoreCase))
                 {
@@ -87,18 +92,21 @@ namespace UI
                 else
                 {
                     MessageBox.Show(
-                        "Unknown account role: " + role,
+                        "Unknown account role.",
                         "Login Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
+
                     return;
                 }
 
                 MessageBox.Show(
-                    $"Login successful! Welcome {username}.",
+                    "Login successful! Welcome " + username + ".",
                     "Success",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+                txtPassword.Clear();
 
                 dashboard.Show();
                 this.Hide();
@@ -106,8 +114,9 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Unable to complete login.\n\n" + ex.Message,
-                    "Login Error",
+                    "Unable to connect to the local database.\n\n"
+                    + ex.Message,
+                    "Database Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }

@@ -1,68 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class Dashboard : Form
     {
+        private bool isLoggingOut = false;
+
         public Dashboard()
         {
             InitializeComponent();
 
+            this.FormClosed -= Dashboard_FormClosed;
+            this.FormClosed += Dashboard_FormClosed;
         }
 
-        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        private void Dashboard_FormClosed(
+            object sender, FormClosedEventArgs e)
         {
-            Application.Exit(); // Closes the background process completely
+            if (!isLoggingOut)
+            {
+                Application.Exit();
+            }
         }
-        private void Dashboard_Shown(object sender, EventArgs e)
+
+        private void Dashboard_Shown(
+            object sender, EventArgs e)
         {
-            // Focus a label or panel instead so no text box is highlighted
             lblHome.Focus();
         }
 
-
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnLogout_Click(
+            object sender, EventArgs e)
         {
-            // 1. Show confirmation dialog
             DialogResult result = MessageBox.Show(
                 "Are you sure you want to logout?",
                 "Confirm Logout",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+                MessageBoxIcon.Question);
 
-            // 2. If user clicks Yes, navigate directly to LogIn UI
             if (result == DialogResult.Yes)
             {
-                // Open the Login form
-                LogInAdmin loginForm = new LogInAdmin();
-                loginForm.Show();
+                LogInAdmin login =
+                    Application.OpenForms
+                    .OfType<LogInAdmin>()
+                    .FirstOrDefault();
 
-                // Close the current Dashboard form completely
-                this.Close();
+                if (login != null)
+                {
+                    isLoggingOut = true;
+                    login.Show();
+                    this.Close();
+                }
             }
         }
 
-        private void btnProductManagement_Click(object sender, EventArgs e)
+        private void OpenInventory()
         {
-            InventoryManagement productForm = new InventoryManagement();
-
-            productForm.Show();
-
-            this.Hide();
-        }
-
-        private void lblInventory_Click(object sender, EventArgs e)
-        {
-            InventoryManagement inventoryForm = new InventoryManagement();
+            InventoryManagement inventoryForm =
+                new InventoryManagement();
 
             inventoryForm.FormClosed += (s, args) =>
             {
@@ -72,6 +70,17 @@ namespace UI
             inventoryForm.Show();
             this.Hide();
         }
+
+        private void btnProductManagement_Click(
+            object sender, EventArgs e)
+        {
+            OpenInventory();
+        }
+
+        private void lblInventory_Click(
+            object sender, EventArgs e)
+        {
+            OpenInventory();
+        }
     }
-    
 }

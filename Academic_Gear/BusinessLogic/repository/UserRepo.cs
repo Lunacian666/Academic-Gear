@@ -1,33 +1,35 @@
-﻿using System.Configuration;
+﻿
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace BusinessLogic.Repository
 {
     public class UserRepo
     {
-        private readonly string connectionString =
-            ConfigurationManager.ConnectionStrings["AcademicGearDB"].ConnectionString;
+        private string connectionString =
+            ConfigurationManager
+            .ConnectionStrings["POSDatabase"]
+            .ConnectionString;
 
         public string Login(string username, string password)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection con =
+                new SqlConnection(connectionString))
             {
-                connection.Open();
+                string query = @"SELECT Role FROM tblLogin
+                    WHERE Username = @Username
+                    AND Password = @Password";
 
-                string query = @"SELECT Role 
-                                 FROM Users 
-                                 WHERE Username = @Username
-                                 AND Password = @Password";
+                SqlCommand cmd = new SqlCommand(query, con);
 
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Username", username);
-                    command.Parameters.AddWithValue("@Password", password);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
 
-                    object result = command.ExecuteScalar();
+                con.Open();
 
-                    return result == null ? null : result.ToString();
-                }
+                object result = cmd.ExecuteScalar();
+
+                return result == null ? null : result.ToString();
             }
         }
     }

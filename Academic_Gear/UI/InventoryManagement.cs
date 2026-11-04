@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
 using System.Windows.Forms;
 
 namespace UI
@@ -17,14 +11,17 @@ namespace UI
             InitializeComponent();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void btnBack_Click(
+            object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnAddNewProduct_Click(object sender, EventArgs e)
+        private void btnAddNewProduct_Click(
+            object sender, EventArgs e)
         {
-            ProductRegistrations productForm = new ProductRegistrations();
+            ProductRegistrations productForm =
+                new ProductRegistrations();
 
             productForm.FormClosed += (s, args) =>
             {
