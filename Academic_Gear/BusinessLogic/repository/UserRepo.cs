@@ -1,35 +1,56 @@
 ﻿
-using System.Configuration;
+using System;
+using System.Data;
 using System.Data.SqlClient;
+using BusinessLogic.Database;
 
 namespace BusinessLogic.Repository
 {
     public class UserRepo
     {
-        private string connectionString =
-            ConfigurationManager
-            .ConnectionStrings["POSDatabase"]
-            .ConnectionString;
-
         public string Login(string username, string password)
         {
-            using (SqlConnection con =
-                new SqlConnection(connectionString))
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrEmpty(password))
             {
-                string query = @"SELECT Role FROM tblLogin
-                    WHERE Username = @Username
-                    AND Password = @Password";
+                return null;
+            }
 
-                SqlCommand cmd = new SqlCommand(query, con);
+            string query = @"
+                SELECT Role
+                FROM dbo.tblLogin
+                WHERE Username = @Username
+                  AND [Password] = @Password";
 
-                cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", password);
+            using (SqlConnection connection =
+                new SqlConnection(
+                    LocalDatabase.ConnectionString))
+            {
+                using (SqlCommand command =
+                    new SqlCommand(query, connection))
+                {
+                    command.Parameters.Add(
+                        "@Username",
+                        SqlDbType.VarChar, 50).Value =
+                        username.Trim();
 
-                con.Open();
+                    command.Parameters.Add(
+                        "@Password",
+                        SqlDbType.VarChar, 50).Value =
+                        password;
 
-                object result = cmd.ExecuteScalar();
+                    connection.Open();
 
-                return result == null ? null : result.ToString();
+                    object result = command.ExecuteScalar();
+
+                    if (result == null ||
+                        result == DBNull.Value)
+                    {
+                        return null;
+                    }
+
+                    return result.ToString();
+                }
             }
         }
     }

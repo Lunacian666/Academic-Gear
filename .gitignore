@@ -1,5 +1,16 @@
+# Visual Studio build and user-specific files
 .vs/
-/bin/
-/obj/
+**/bin/
+**/obj/
+*.user
+*.suo
 *.dbmdl
 *.jfm
+
+# Local database contents must stay on each computer
+*.mdf
+*.ldf
+*.ndf
+
+# Credentials and local overrides
+*.secrets.json
