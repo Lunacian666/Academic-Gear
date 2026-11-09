@@ -64,6 +64,12 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageAccountCashier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageAccountCashier.Designer.cs">
+      <DependentUpon>ManageAccountCashier.cs</DependentUpon>
+    </Compile>
     <Compile Include="PointOfSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAccountCashier.resx">
+      <DependentUpon>ManageAccountCashier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PointOfSale.resx">
       <DependentUpon>PointOfSale.cs</DependentUpon>
