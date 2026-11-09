@@ -1,5 +1,11 @@
+#Visual Studio temporary files
 .vs/
 /bin/
 /obj/
-*.dbmdl
-*.jfm
+*.user
+*.suo
+
+#Local SQL Server database files
+*.mdf
+*.ldf
+*.ndf
