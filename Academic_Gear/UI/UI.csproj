@@ -82,6 +82,7 @@
     <Compile Include="InventoryManagement.Designer.cs">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductData.cs" />
     <Compile Include="ProductRegistrations.cs">
       <SubType>Form</SubType>
     </Compile>

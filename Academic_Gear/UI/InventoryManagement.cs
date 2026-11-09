@@ -9,6 +9,10 @@ namespace UI
         public InventoryManagement()
         {
             InitializeComponent();
+
+            dgvProductManagement.AutoGenerateColumns = false;
+            //kinoconnect ang datagrid sa shared na product list
+            dgvProductManagement.DataSource = ProductData.Products;
         }
 
         private void btnBack_Click(
@@ -20,16 +24,17 @@ namespace UI
         private void btnAddNewProduct_Click(
             object sender, EventArgs e)
         {
-            ProductRegistrations productForm =
-                new ProductRegistrations();
+            this.Hide();
+
+            ProductRegistrations productForm = new ProductRegistrations();
 
             productForm.FormClosed += (s, args) =>
             {
                 this.Show();
+                dgvProductManagement.Refresh();
             };
 
             productForm.Show();
-            this.Hide();
         }
     }
 }

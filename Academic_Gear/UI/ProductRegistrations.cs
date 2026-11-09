@@ -16,7 +16,39 @@ namespace UI
         {
             InitializeComponent();
 
-            SetupPlaceholder(txtProductCode, "Enter product code");
+            cmbCategory.Items.Clear();
+
+            //Available products sa categories
+            cmbCategory.Items.Add("Writing Materials");
+            cmbCategory.Items.Add("Art Materials");
+            cmbCategory.Items.Add("Folderss and Envelopes");
+            cmbCategory.Items.Add("School Supplies");
+            cmbCategory.Items.Add("Office Supplies");
+            cmbCategory.Items.Add("Paper Products");
+
+            //para maka select ang user sa available na options
+            cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            cmbUnitPerMeasure.Items.Clear();
+
+            cmbUnitPerMeasure.Items.Add("Piece (pc)");
+            cmbUnitPerMeasure.Items.Add("Pack");
+            cmbUnitPerMeasure.Items.Add("Ream");
+            cmbUnitPerMeasure.Items.Add("Box");
+            cmbUnitPerMeasure.Items.Add("Set");
+            cmbUnitPerMeasure.Items.Add("Pad");
+            cmbUnitPerMeasure.Items.Add("Roll");
+            cmbUnitPerMeasure.Items.Add("Bottle");
+            cmbUnitPerMeasure.Items.Add("Tube");
+            cmbUnitPerMeasure.Items.Add("Sheet");
+            cmbUnitPerMeasure.Items.Add("Bundle");
+            cmbUnitPerMeasure.Items.Add("Pair");
+
+            cmbUnitPerMeasure.SelectedIndex = 1;
+
+            //automatic na code pag open ng form
+            GenerateProductCode();
+
             SetupPlaceholder(txtProductName, "Enter product name");
             SetupPlaceholder(txtPrice, "Enter price");
             SetupPlaceholder(txtQuantity, "Enter quantity");
@@ -107,6 +139,101 @@ namespace UI
                     ResetFields(child);
                 }
             }
+            GenerateProductCode();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //input sa Category kukunin
+            string category = cmbCategory.SelectedItem?.ToString();
+ 
+            if (string.IsNullOrEmpty(category))
+            {
+                MessageBox.Show("Please select a category.");
+                cmbCategory.Focus();
+                return;
+            }
+
+            //chinecheck kung nakapag generate na ng code ang system
+            if (string.IsNullOrWhiteSpace(txtProductCode.Text))
+            {
+                MessageBox.Show("Unable to generate Product Code.");
+                GenerateProductCode();
+                return;
+            }
+
+            string unit = cmbUnitPerMeasure.SelectedItem?.ToString();
+            if (string.IsNullOrWhiteSpace(unit))
+            {
+                MessageBox.Show("Please select a unit per measure.");
+                cmbUnitPerMeasure.Focus();
+                return;
+            }
+
+            decimal price;
+            if (string.IsNullOrWhiteSpace(txtPrice.Text) ||
+            txtPrice.Text == "Enter price")
+            {
+                MessageBox.Show("Please input a price.");
+                txtPrice.Focus();
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrice.Text, out price) || price < 0)
+            {
+                MessageBox.Show("Please enter a valid price.");
+                txtPrice.Focus();
+                return;
+            }
+
+            string productName = txtProductName.Text.Trim();
+            if (string.IsNullOrWhiteSpace(txtProductName.Text) ||
+                productName == "Enter product name")
+            {
+                MessageBox.Show("Please input a product name.");
+                txtProductName.Focus();
+                return;
+            }
+
+            int quantity;
+            if (string.IsNullOrWhiteSpace(txtQuantity.Text) ||
+                txtQuantity.Text == "Enter quantity")
+            {
+                MessageBox.Show("Please input a quantity.");
+                txtQuantity.Focus();
+                return;
+            }
+
+            if (!int.TryParse(txtQuantity.Text, out quantity) || quantity < 0)
+            {
+                MessageBox.Show("Please enter a valid quantity.");
+                txtQuantity.Focus();
+                return;
+            }
+
+            ProductItem newProduct = new ProductItem()
+            {
+                ProductCode = txtProductCode.Text.Trim(),
+                ProductName = productName,
+                Category = category,
+                UnitPerMeasure = unit,
+                Price = price,
+                Quantity = quantity
+            };
+            ProductData.Products.Add(newProduct);
+            MessageBox.Show("Product registered successfully!", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void GenerateProductCode()
+        {
+            //unique product code (date and time)
+            string productCode = "AG - " + DateTime.Now.ToString("yyyyMMddHHmmssfff");
+
+            //generate ng code sa product code na textbox
+            txtProductCode.Text = productCode;
+            //para hindi ma edit ng admin ang product code
+            txtProductCode.ReadOnly = true;
         }
     }
 }
