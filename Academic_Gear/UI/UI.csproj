@@ -64,6 +64,12 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageAccountCashier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageAccountCashier.Designer.cs">
+      <DependentUpon>ManageAccountCashier.cs</DependentUpon>
+    </Compile>
     <Compile Include="PointOfSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,18 @@
     <Compile Include="Receipt.Designer.cs">
       <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesHistory.Designer.cs">
+      <DependentUpon>SalesHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchReceipt.Designer.cs">
+      <DependentUpon>SearchReceipt.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CashierDashboard.resx">
@@ -110,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAccountCashier.resx">
+      <DependentUpon>ManageAccountCashier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PointOfSale.resx">
       <DependentUpon>PointOfSale.cs</DependentUpon>
@@ -127,6 +148,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesHistory.resx">
+      <DependentUpon>SalesHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchReceipt.resx">
+      <DependentUpon>SearchReceipt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

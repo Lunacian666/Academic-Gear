@@ -1,4 +1,5 @@
-# Visual Studio build and user-specific files
+
+# Visual Studio build and temporary files
 .vs/
 **/bin/
 **/obj/
@@ -7,7 +8,8 @@
 *.dbmdl
 *.jfm
 
-# Local database contents must stay on each computer
+# Local SQL Server database files
+# Database contents must stay on each computer
 *.mdf
 *.ldf
 *.ndf
