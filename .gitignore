@@ -1,11 +1,18 @@
-#Visual Studio temporary files
+
+# Visual Studio build and temporary files
 .vs/
-/bin/
-/obj/
+**/bin/
+**/obj/
 *.user
 *.suo
+*.dbmdl
+*.jfm
 
-#Local SQL Server database files
+# Local SQL Server database files
+# Database contents must stay on each computer
 *.mdf
 *.ldf
 *.ndf
+
+# Credentials and local overrides
+*.secrets.json
