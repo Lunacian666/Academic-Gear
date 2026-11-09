@@ -106,6 +106,12 @@
     <Compile Include="SalesHistory.Designer.cs">
       <DependentUpon>SalesHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchReceipt.Designer.cs">
+      <DependentUpon>SearchReceipt.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CashierDashboard.resx">
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SalesHistory.resx">
       <DependentUpon>SalesHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchReceipt.resx">
+      <DependentUpon>SearchReceipt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
