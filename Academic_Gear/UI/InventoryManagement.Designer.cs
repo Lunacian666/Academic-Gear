@@ -44,9 +44,6 @@
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AvailableStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductManagement)).BeginInit();
             this.SuspendLayout();
@@ -101,10 +98,7 @@
             this.ProductName,
             this.Category,
             this.Price,
-            this.AvailableStock,
-            this.View,
-            this.Edit,
-            this.Delete});
+            this.AvailableStock});
             this.dgvProductManagement.Location = new System.Drawing.Point(37, 110);
             this.dgvProductManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProductManagement.Name = "dgvProductManagement";
@@ -167,7 +161,7 @@
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(15, 62);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(113, 31);
             this.btnBack.TabIndex = 24;
@@ -215,27 +209,6 @@
             this.AvailableStock.Name = "AvailableStock";
             this.AvailableStock.Width = 125;
             // 
-            // View
-            // 
-            this.View.HeaderText = "VIEW";
-            this.View.MinimumWidth = 6;
-            this.View.Name = "View";
-            this.View.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "EDIT";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 125;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "DELETE";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 125;
-            // 
             // InventoryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -277,8 +250,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn AvailableStock;
-        private System.Windows.Forms.DataGridViewButtonColumn View;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
