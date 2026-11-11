@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace UI
 {
@@ -21,13 +22,14 @@ namespace UI
             //Available products sa categories
             cmbCategory.Items.Add("Writing Materials");
             cmbCategory.Items.Add("Art Materials");
-            cmbCategory.Items.Add("Folderss and Envelopes");
+            cmbCategory.Items.Add("Folders and Envelopes");
             cmbCategory.Items.Add("School Supplies");
             cmbCategory.Items.Add("Office Supplies");
             cmbCategory.Items.Add("Paper Products");
 
             //para maka select ang user sa available na options
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategory.SelectedIndexChanged += cmbCategory_SelectedIndexChanged;
 
             cmbUnitPerMeasure.Items.Clear();
 
@@ -46,14 +48,23 @@ namespace UI
 
             cmbUnitPerMeasure.SelectedIndex = 1;
 
-            //automatic na code pag open ng form
-            GenerateProductCode();
-
             SetupPlaceholder(txtProductName, "Enter product name");
             SetupPlaceholder(txtPrice, "Enter price");
             SetupPlaceholder(txtQuantity, "Enter quantity");
 
         }
+
+        public ProductRegistrations(ProductItem product): this()
+        {
+            txtProductCode.Text = product.ProductCode;
+            txtProductName.Text = product.ProductName;
+            cmbCategory.Text = product.Category;
+            cmbUnitPerMeasure.Text = product.UnitPerMeasure;
+            txtPrice.Text = product.Price.ToString();
+            txtQuantity.Text = product.Quantity.ToString();
+
+        }
+
         private void SetupPlaceholder(TextBox txt, string placeholder)
         {
             // Set initial text and enforce black text color
@@ -139,7 +150,6 @@ namespace UI
                     ResetFields(child);
                 }
             }
-            GenerateProductCode();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -225,14 +235,59 @@ namespace UI
             this.Close();
         }
 
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GenerateProductCode();
+        }
+
         private void GenerateProductCode()
         {
             //unique product code (date and time)
-            string productCode = "AG - " + DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            string category = cmbCategory.SelectedItem?.ToString();
 
-            //generate ng code sa product code na textbox
+            if (string.IsNullOrWhiteSpace(category))
+            {
+                txtProductCode.Clear();
+                return;
+            }
+            //dinedetermine dito kung anong product code prefix ang pipiliin based sa category
+            string prefix = "";
+            switch (category)
+            {
+                case "Writing Materials":
+                    prefix = "WRT";
+                    break;
+
+                case "Art Materials":
+                    prefix = "ART";
+                    break;
+
+                case "Folders and Envelopes":
+                    prefix = "FDE";
+                    break;
+
+                case "School Supplies":
+                    prefix = "SCH";
+                    break;
+
+                case "Office Supplies":
+                    prefix = "OFF";
+                    break;
+
+                case "Paper Products":
+                    prefix = "PAP";
+                    break;
+
+                default: MessageBox.Show("Invalid category selected.");
+                    txtProductCode.Clear();
+                    return;
+            }
+            //PARA MAG GENERATE NG UNIQUE 4 DIGITS
+            string uniqueCode = Guid.NewGuid().ToString("N").Substring(0, 4).ToUpper();
+            //PAG GENERATE NG CODE 
+            string productCode = prefix + "-" + DateTime.Now.ToString("yyyyMMdd") + uniqueCode.ToString();
+            //DISPLAY NG GENERATED NA PRODUCT CODE
             txtProductCode.Text = productCode;
-            //para hindi ma edit ng admin ang product code
             txtProductCode.ReadOnly = true;
         }
     }
