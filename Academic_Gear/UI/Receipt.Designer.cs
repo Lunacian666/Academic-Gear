@@ -68,7 +68,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(238, 457);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 29);
             this.btnCancel.TabIndex = 62;
@@ -81,12 +81,13 @@
             this.btnPrint.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(84, 457);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(120, 29);
             this.btnPrint.TabIndex = 61;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // panel1
             // 
@@ -104,7 +105,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(16, 360);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(416, 84);
             this.panel1.TabIndex = 59;
@@ -250,7 +251,7 @@
             this.clmPrice,
             this.clmTotal});
             this.dgvReceipt.Location = new System.Drawing.Point(16, 129);
-            this.dgvReceipt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvReceipt.Margin = new System.Windows.Forms.Padding(2);
             this.dgvReceipt.Name = "dgvReceipt";
             this.dgvReceipt.RowHeadersWidth = 51;
             this.dgvReceipt.RowTemplate.Height = 24;
@@ -292,7 +293,7 @@
             this.panel3.Controls.Add(this.lblAcademicGear);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Location = new System.Drawing.Point(16, 18);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(416, 50);
             this.panel3.TabIndex = 58;
@@ -338,7 +339,7 @@
             this.panel4.Controls.Add(this.lblCashierName);
             this.panel4.Controls.Add(this.lblDateTime);
             this.panel4.Location = new System.Drawing.Point(16, 71);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(416, 72);
             this.panel4.TabIndex = 57;
@@ -346,9 +347,9 @@
             // dtReceipt
             // 
             this.dtReceipt.Location = new System.Drawing.Point(130, 11);
-            this.dtReceipt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtReceipt.Margin = new System.Windows.Forms.Padding(2);
             this.dtReceipt.Name = "dtReceipt";
-            this.dtReceipt.Size = new System.Drawing.Size(174, 20);
+            this.dtReceipt.Size = new System.Drawing.Size(200, 20);
             this.dtReceipt.TabIndex = 47;
             // 
             // lblCashier
@@ -395,7 +396,7 @@
             this.Controls.Add(this.dgvReceipt);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Receipt";
             this.Text = "Receipt";
             this.panel1.ResumeLayout(false);
