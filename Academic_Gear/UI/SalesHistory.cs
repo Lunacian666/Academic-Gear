@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -15,6 +8,15 @@ namespace UI
         public SalesHistory()
         {
             InitializeComponent();
+
+            dgSalesHistory.Columns.Clear();
+            dgSalesHistory.AutoGenerateColumns = true;
+            dgSalesHistory.DataSource = SalesData.SalesHistory;
+
+            dgSalesHistory.ReadOnly = true;
+            dgSalesHistory.AllowUserToAddRows = false;
+            dgSalesHistory.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
         }
     }
 }

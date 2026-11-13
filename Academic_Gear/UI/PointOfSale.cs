@@ -77,7 +77,7 @@ namespace UI
                 RefreshCart();
             };
 
-            btnNewSale.Click += btnProcessPayment_Click;
+            btnNewSale.Click += (s, e) => NewSale();
             dgvSalesItem.CellContentClick += CartClicked;
             txtDiscount.TextChanged += (s, e) => RefreshTotals();
             Shown += (s, e) =>
@@ -456,85 +456,85 @@ namespace UI
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void btnProcessPayment_Click_1(object sender, EventArgs e)
-        {
-            //is empty cart?
-            if(cart.Count == 0)
-            {
-                MessageBox.Show("Please add products first.");
-                    return;
-            }
+        //private void btnProcessPayment_Click_1(object sender, EventArgs e)
+        //{
+        //    //is empty cart?
+        //    if (cart.Count == 0)
+        //    {
+        //        MessageBox.Show("Please add products first.");
+        //        return;
+        //    }
 
-            //get payment method
-            string method = rbCash.Checked ? "Cash" :
-                    rbCard.Checked ? "Card" :
-                    rbGCash.Checked ? "GCash" : null;
+        //    //get payment method
+        //    string method = rbCash.Checked ? "Cash" :
+        //            rbCard.Checked ? "Card" :
+        //            rbGCash.Checked ? "GCash" : null;
 
-            if (method == null)
-            {
-                MessageBox.Show("Please select a payment method.");
-                return;
-            }
+        //    if (method == null)
+        //    {
+        //        MessageBox.Show("Please select a payment method.");
+        //        return;
+        //    }
 
-            // Get discount
-            decimal discount;
+        //    // Get discount
+        //    decimal discount;
 
-            if (!TryGetDiscount(out discount))
-            {
-                MessageBox.Show("Invalid discount amount.");
-                return;
-            }
+        //    if (!TryGetDiscount(out discount))
+        //    {
+        //        MessageBox.Show("Invalid discount amount.");
+        //        return;
+        //    }
 
-            decimal total = SubTotal - discount;
+        //    decimal total = SubTotal - discount;
 
-            // Confirm payment
-            DialogResult result = MessageBox.Show(
-                "Total Amount: " + total.ToString("N2") +
-                "\nPayment Method: " + method +
-                "\n\nConfirm payment?",
-                "Process Payment",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+        //    // Confirm payment
+        //    DialogResult result = MessageBox.Show(
+        //        "Total Amount: " + total.ToString("N2") +
+        //        "\nPayment Method: " + method +
+        //        "\n\nConfirm payment?",
+        //        "Process Payment",
+        //        MessageBoxButtons.YesNo,
+        //        MessageBoxIcon.Question
+        //    );
 
-            if (result != DialogResult.Yes)
-                return;
+        //    if (result != DialogResult.Yes)
+        //        return;
 
-            try
-            {
-                // Transfer products to Admin Sales History
-                TransferSalesHistory(method, discount);
+        //    try
+        //    {
+        //        // Transfer products to Admin Sales History
+        //        TransferSalesHistory(method, discount);
 
-                MessageBox.Show(
-                    "Payment successful!\nSales transferred to Admin Sales History.",
-                    "Payment Completed",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+        //        MessageBox.Show(
+        //            "Payment successful!\nSales transferred to Admin Sales History.",
+        //            "Payment Completed",
+        //            MessageBoxButtons.OK,
+        //            MessageBoxIcon.Information
+        //        );
 
-                // Clear POS cart after successful transfer
-                cart.Clear();
+        //        // Clear POS cart after successful transfer
+        //        cart.Clear();
 
-                txtDiscount.Clear();
+        //        txtDiscount.Clear();
 
-                rbCash.Checked = false;
-                rbCard.Checked = false;
-                rbGCash.Checked = false;
+        //        rbCash.Checked = false;
+        //        rbCard.Checked = false;
+        //        rbGCash.Checked = false;
 
-                udQuantity.Value = 1;
+        //        udQuantity.Value = 1;
 
-                RefreshCart();
-                LoadProducts();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    ex.Message,
-                    "Payment Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
-        }
+        //        RefreshCart();
+        //        LoadProducts();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(
+        //            ex.Message,
+        //            "Payment Error",
+        //            MessageBoxButtons.OK,
+        //            MessageBoxIcon.Error
+        //        );
+        //    }
+        //}
     }
 }
