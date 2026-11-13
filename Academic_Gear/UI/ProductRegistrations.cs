@@ -14,6 +14,7 @@ namespace UI
     public partial class ProductRegistrations : Form
     {
         private ProductItem productBeingEdited = null;
+        private bool isLoadingProduct = false;
         public ProductRegistrations()
         {
             InitializeComponent();
@@ -56,6 +57,7 @@ namespace UI
 
         public ProductRegistrations(ProductItem product): this()
         {
+            isLoadingProduct = true;
             productBeingEdited = product;
 
             //Dinidisplay ang existing product info
@@ -65,6 +67,8 @@ namespace UI
             cmbUnitPerMeasure.Text = product.UnitPerMeasure;
             txtPrice.Text = product.Price.ToString();
             txtQuantity.Text = product.Quantity.ToString();
+
+            isLoadingProduct = false;
 
         }
 
@@ -227,13 +231,14 @@ namespace UI
             if (productBeingEdited != null)
             {
                 //Updatting existing product
+                productBeingEdited.ProductCode = txtProductCode.Text.Trim();
                 productBeingEdited.ProductName = productName;
                 productBeingEdited.Category = category;
                 productBeingEdited.UnitPerMeasure = unit;
                 productBeingEdited.Price = price;
                 productBeingEdited.Quantity = quantity;
 
-                MessageBox.Show("Product updated successfully!", "Update Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Product updated successfully!");
             }
 
             else
@@ -256,8 +261,7 @@ namespace UI
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //nag gegenerate lang ng code kapag nag reregister ng NEW product
-            if(productBeingEdited == null)
+            if(!isLoadingProduct)
             {
                 GenerateProductCode();
             }
