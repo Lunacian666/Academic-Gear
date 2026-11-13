@@ -39,6 +39,13 @@ namespace UI
             viewButton.UseColumnTextForButtonValue = true;
             viewButton.Width = 80;
 
+            DataGridViewButtonColumn addButton = new DataGridViewButtonColumn();
+            addButton.Name = "colAdd";
+            addButton.HeaderText = "ADD STOCK";
+            addButton.Text = "Add";
+            addButton.UseColumnTextForButtonValue= true;
+
+
             DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
             editButton.Name = "colEdit";
             editButton.HeaderText = "EDIT";
@@ -54,6 +61,7 @@ namespace UI
             deleteButton.Width = 80;
 
             dgvProductManagement.Columns.Add(viewButton);
+            dgvProductManagement.Columns.Add(addButton);
             dgvProductManagement.Columns.Add(editButton);
             dgvProductManagement.Columns.Add(deleteButton);
 
@@ -164,6 +172,32 @@ namespace UI
                     "\nAvailable Stock: " + selectedProduct.Quantity,
                     "Product Details");
             }
+
+            //ADD BUTTON
+            //if (columnName == "colAdd")
+            //{
+            //    string input = Microsoft.VisualBasic.Interaction.InputBox(
+            //        "Enter the additional quantity: ",
+            //        "Add stock",
+            //        "1");
+
+            //    if (string.IsNullOrEmpty(input))
+            //        return;
+            //    int additionalQuantity;
+
+            //    if (!int.TryParse(input, out additionalQuantity) || additionalQuantity <= 0) {
+            //        MessageBox.Show("Please enter a valid quantity.");
+            //            return;
+            //    }
+
+            //    selectedProduct.Quantity += additionalQuantity;
+            //    RefreshProductGrid();
+            //    MessageBox.Show(
+            //        "Stock succesfully added!" +
+            //        "\nProduct: " + selectedProduct.ProductName +
+            //        "\nNew Stock: " + selectedProduct.Quantity,
+            //        "Stock Updated");
+            //}
 
             //EDIT BUTTON
             else if (columnName == "colEdit")
