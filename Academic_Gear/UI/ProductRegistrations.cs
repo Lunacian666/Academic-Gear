@@ -159,7 +159,7 @@ namespace UI
         {
             //input sa Category kukunin
             string category = cmbCategory.SelectedItem?.ToString();
- 
+
             if (string.IsNullOrEmpty(category))
             {
                 MessageBox.Show("Please select a category.");
@@ -227,32 +227,40 @@ namespace UI
             if (productBeingEdited != null)
             {
                 //Updatting existing product
-                productBeingEdited.ProductName = txtProductName.Text;
-                productBeingEdited.Category = cmbCategory.Text;
-                productBeingEdited.UnitPerMeasure = cmbUnitPerMeasure.Text;
-                productBeingEdited.Price = decimal.Parse(txtPrice.Text);
-                productBeingEdited.Quantity = int.Parse(txtQuantity.Text);
+                productBeingEdited.ProductName = productName;
+                productBeingEdited.Category = category;
+                productBeingEdited.UnitPerMeasure = unit;
+                productBeingEdited.Price = price;
+                productBeingEdited.Quantity = quantity;
 
-                MessageBox.Show("Product updated successfully!");
+                MessageBox.Show("Product updated successfully!", "Update Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            ProductItem newProduct = new ProductItem()
+            else
             {
-                ProductCode = txtProductCode.Text.Trim(),
-                ProductName = productName,
-                Category = category,
-                UnitPerMeasure = unit,
-                Price = price,
-                Quantity = quantity
-            };
-            ProductData.Products.Add(newProduct);
-            MessageBox.Show("Product registered successfully!", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ProductItem newProduct = new ProductItem()
+                {
+                    ProductCode = txtProductCode.Text.Trim(),
+                    ProductName = productName,
+                    Category = category,
+                    UnitPerMeasure = unit,
+                    Price = price,
+                    Quantity = quantity
+                };
+                ProductData.Products.Add(newProduct);
+                MessageBox.Show("Product registered successfully!", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             this.Close();
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GenerateProductCode();
+            //nag gegenerate lang ng code kapag nag reregister ng NEW product
+            if(productBeingEdited == null)
+            {
+                GenerateProductCode();
+            }
         }
 
         private void GenerateProductCode()
