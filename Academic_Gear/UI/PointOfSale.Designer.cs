@@ -47,6 +47,10 @@
             this.btnPrintReceipt = new System.Windows.Forms.Button();
             this.btnNewSale = new System.Windows.Forms.Button();
             this.dgvSalesItem = new System.Windows.Forms.DataGridView();
+            this.clmProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.udQuantity = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -74,10 +78,6 @@
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblNumSubTotal = new System.Windows.Forms.Label();
             this.lblSubTotal = new System.Windows.Forms.Label();
-            this.clmProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -111,6 +111,7 @@
             this.btnProcessPayment.TabIndex = 65;
             this.btnProcessPayment.Text = "Process Payment";
             this.btnProcessPayment.UseVisualStyleBackColor = false;
+            this.btnProcessPayment.Click += new System.EventHandler(this.btnProcessPayment_Click_1);
             // 
             // panel6
             // 
@@ -312,6 +313,34 @@
             this.dgvSalesItem.RowTemplate.Height = 24;
             this.dgvSalesItem.Size = new System.Drawing.Size(805, 347);
             this.dgvSalesItem.TabIndex = 60;
+            // 
+            // clmProductName
+            // 
+            this.clmProductName.HeaderText = "PRODUCT NAME";
+            this.clmProductName.MinimumWidth = 6;
+            this.clmProductName.Name = "clmProductName";
+            this.clmProductName.Width = 125;
+            // 
+            // clmQty
+            // 
+            this.clmQty.HeaderText = "QTY";
+            this.clmQty.MinimumWidth = 6;
+            this.clmQty.Name = "clmQty";
+            this.clmQty.Width = 125;
+            // 
+            // clmPrice
+            // 
+            this.clmPrice.HeaderText = "PRICE";
+            this.clmPrice.MinimumWidth = 6;
+            this.clmPrice.Name = "clmPrice";
+            this.clmPrice.Width = 125;
+            // 
+            // clmTotal
+            // 
+            this.clmTotal.HeaderText = "TOTAL";
+            this.clmTotal.MinimumWidth = 6;
+            this.clmTotal.Name = "clmTotal";
+            this.clmTotal.Width = 125;
             // 
             // btnAddProduct
             // 
@@ -583,34 +612,6 @@
             this.lblSubTotal.Size = new System.Drawing.Size(84, 20);
             this.lblSubTotal.TabIndex = 44;
             this.lblSubTotal.Text = "Subtotal:";
-            // 
-            // clmProductName
-            // 
-            this.clmProductName.HeaderText = "PRODUCT NAME";
-            this.clmProductName.MinimumWidth = 6;
-            this.clmProductName.Name = "clmProductName";
-            this.clmProductName.Width = 125;
-            // 
-            // clmQty
-            // 
-            this.clmQty.HeaderText = "QTY";
-            this.clmQty.MinimumWidth = 6;
-            this.clmQty.Name = "clmQty";
-            this.clmQty.Width = 125;
-            // 
-            // clmPrice
-            // 
-            this.clmPrice.HeaderText = "PRICE";
-            this.clmPrice.MinimumWidth = 6;
-            this.clmPrice.Name = "clmPrice";
-            this.clmPrice.Width = 125;
-            // 
-            // clmTotal
-            // 
-            this.clmTotal.HeaderText = "TOTAL";
-            this.clmTotal.MinimumWidth = 6;
-            this.clmTotal.Name = "clmTotal";
-            this.clmTotal.Width = 125;
             // 
             // PointOfSale
             // 
