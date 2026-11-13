@@ -13,6 +13,7 @@ namespace UI
 {
     public partial class ProductRegistrations : Form
     {
+        private ProductItem productBeingEdited = null;
         public ProductRegistrations()
         {
             InitializeComponent();
@@ -51,11 +52,13 @@ namespace UI
             SetupPlaceholder(txtProductName, "Enter product name");
             SetupPlaceholder(txtPrice, "Enter price");
             SetupPlaceholder(txtQuantity, "Enter quantity");
-
         }
 
         public ProductRegistrations(ProductItem product): this()
         {
+            productBeingEdited = product;
+
+            //Dinidisplay ang existing product info
             txtProductCode.Text = product.ProductCode;
             txtProductName.Text = product.ProductName;
             cmbCategory.Text = product.Category;
@@ -219,6 +222,18 @@ namespace UI
                 MessageBox.Show("Please enter a valid quantity.");
                 txtQuantity.Focus();
                 return;
+            }
+
+            if (productBeingEdited != null)
+            {
+                //Updatting existing product
+                productBeingEdited.ProductName = txtProductName.Text;
+                productBeingEdited.Category = cmbCategory.Text;
+                productBeingEdited.UnitPerMeasure = cmbUnitPerMeasure.Text;
+                productBeingEdited.Price = decimal.Parse(txtPrice.Text);
+                productBeingEdited.Quantity = int.Parse(txtQuantity.Text);
+
+                MessageBox.Show("Product updated successfully!");
             }
 
             ProductItem newProduct = new ProductItem()
