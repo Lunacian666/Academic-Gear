@@ -174,30 +174,19 @@ namespace UI
             }
 
             //ADD BUTTON
-            //if (columnName == "colAdd")
-            //{
-            //    string input = Microsoft.VisualBasic.Interaction.InputBox(
-            //        "Enter the additional quantity: ",
-            //        "Add stock",
-            //        "1");
+            else if (columnName == "colAdd")
+            {
+                AddStock addStock = new AddStock(selectedProduct);
 
-            //    if (string.IsNullOrEmpty(input))
-            //        return;
-            //    int additionalQuantity;
-
-            //    if (!int.TryParse(input, out additionalQuantity) || additionalQuantity <= 0) {
-            //        MessageBox.Show("Please enter a valid quantity.");
-            //            return;
-            //    }
-
-            //    selectedProduct.Quantity += additionalQuantity;
-            //    RefreshProductGrid();
-            //    MessageBox.Show(
-            //        "Stock succesfully added!" +
-            //        "\nProduct: " + selectedProduct.ProductName +
-            //        "\nNew Stock: " + selectedProduct.Quantity,
-            //        "Stock Updated");
-            //}
+                if (addStock.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshProductGrid();
+                    MessageBox.Show(
+                        "Inventory updated successfully!",
+                        "Stock Updated",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }  
+            }
 
             //EDIT BUTTON
             else if (columnName == "colEdit")
