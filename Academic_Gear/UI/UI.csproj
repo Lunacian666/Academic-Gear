@@ -119,6 +119,7 @@
     <Compile Include="SalesHistory.Designer.cs">
       <DependentUpon>SalesHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesItem.cs" />
     <Compile Include="SearchReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
