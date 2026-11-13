@@ -44,8 +44,8 @@
             this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmView = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPaymentMethod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgSalesHistory)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -65,8 +65,8 @@
             this.clmPrice,
             this.clmQty,
             this.clmTotal,
-            this.clmView,
-            this.clmDelete});
+            this.clmDate,
+            this.clmPaymentMethod});
             this.dgSalesHistory.Location = new System.Drawing.Point(29, 161);
             this.dgSalesHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgSalesHistory.Name = "dgSalesHistory";
@@ -205,23 +205,19 @@
             this.clmTotal.Name = "clmTotal";
             this.clmTotal.Width = 125;
             // 
-            // clmView
+            // clmDate
             // 
-            this.clmView.HeaderText = "VIEW";
-            this.clmView.MinimumWidth = 6;
-            this.clmView.Name = "clmView";
-            this.clmView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmView.Width = 125;
+            this.clmDate.HeaderText = "DATE";
+            this.clmDate.MinimumWidth = 6;
+            this.clmDate.Name = "clmDate";
+            this.clmDate.Width = 125;
             // 
-            // clmDelete
+            // clmPaymentMethod
             // 
-            this.clmDelete.HeaderText = "DELETE";
-            this.clmDelete.MinimumWidth = 6;
-            this.clmDelete.Name = "clmDelete";
-            this.clmDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmDelete.Width = 125;
+            this.clmPaymentMethod.HeaderText = "PAYMENT METHOD";
+            this.clmPaymentMethod.MinimumWidth = 6;
+            this.clmPaymentMethod.Name = "clmPaymentMethod";
+            this.clmPaymentMethod.Width = 125;
             // 
             // SalesHistory
             // 
@@ -265,7 +261,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
-        private System.Windows.Forms.DataGridViewButtonColumn clmView;
-        private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPaymentMethod;
     }
 }

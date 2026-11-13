@@ -111,7 +111,6 @@
             this.btnProcessPayment.TabIndex = 65;
             this.btnProcessPayment.Text = "Process Payment";
             this.btnProcessPayment.UseVisualStyleBackColor = false;
-            this.btnProcessPayment.Click += new System.EventHandler(this.btnProcessPayment_Click_1);
             // 
             // panel6
             // 
