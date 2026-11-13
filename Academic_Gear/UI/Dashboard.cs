@@ -82,5 +82,16 @@ namespace UI
         {
             OpenInventory();
         }
+
+        private void btnSalesHistory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SalesHistory salesForm = new SalesHistory();
+            salesForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+            };
+            salesForm.Show();
+        }
     }
 }
