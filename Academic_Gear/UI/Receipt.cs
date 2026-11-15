@@ -24,6 +24,14 @@ namespace UI
             dgvReceipt.AllowUserToAddRows = false;
             Shown += Receipt_Shown;
             document.PrintPage += Document_PrintPage;
+
+            document.DefaultPageSettings.PaperSize =
+                new PaperSize("80mm Receipt", 315, 550);
+
+            document.DefaultPageSettings.Margins =
+                new Margins(12, 30, 30, 12);
+
+            document.OriginAtMargins = true;
         }
 
         private void Receipt_Shown(object sender, EventArgs e)
@@ -88,41 +96,132 @@ namespace UI
         private void Document_PrintPage(object sender, PrintPageEventArgs e)
         {
             if (sale == null) return;
-            using (var font = new Font("Consolas", 9f))
-            using (var bold = new Font("Consolas", 12f, FontStyle.Bold))
+
+            using (Font titleFont = new Font("Arial", 14, FontStyle.Bold))
+            using (Font normalFont = new Font("Arial", 10))
+            using (Font boldFont = new Font("Arial", 10, FontStyle.Bold))
             {
+                Graphics g = e.Graphics;
+
                 float x = e.MarginBounds.Left;
                 float y = e.MarginBounds.Top;
-                const float step = 19f;
-                e.Graphics.DrawString("ACADEMIC GEAR", bold, Brushes.Black, x, y); y += 31;
-                e.Graphics.DrawString("Receipt #" + sale.Id + "  " + sale.Date.ToString("yyyy-MM-dd HH:mm"), font, Brushes.Black, x, y); y += step;
-                e.Graphics.DrawString("Cashier: " + sale.Cashier + "  Payment: " + sale.PaymentMethod, font, Brushes.Black, x, y); y += 2 * step;
-                if (printIndex == 0)
-                    e.Graphics.DrawString("Item                         Qty       Price        Total", font, Brushes.Black, x, y);
-                y += step;
-                while (printIndex < sale.Items.Count && y + 6 * step < e.MarginBounds.Bottom)
+                float width = e.MarginBounds.Width;
+                float right = x + width;
+
+                float lineHeight = 22f;
+
+                StringFormat center = new StringFormat
                 {
-                    SaleLine line = sale.Items[printIndex];
-                    string name = line.ProductName.Length > 24 ? line.ProductName.Substring(0, 24) : line.ProductName;
-                    e.Graphics.DrawString(string.Format("{0,-24} {1,4} {2,11:N2} {3,12:N2}",
-                        name, line.Quantity, line.UnitPrice, line.LineTotal), font, Brushes.Black, x, y);
-                    y += step;
-                    printIndex++;
-                }
-                if (printIndex < sale.Items.Count)
+                    Alignment = StringAlignment.Center
+                };
+
+                StringFormat rightAlign = new StringFormat
                 {
-                    e.HasMorePages = true;
-                    return;
+                    Alignment = StringAlignment.Far
+                };
+
+                // Store name
+                g.DrawString("ACADEMIC GEAR", titleFont, Brushes.Black,
+                    new RectangleF(x, y, width, 28), center);
+                y += 30;
+
+                g.DrawString("SALES RECEIPT", normalFont, Brushes.Black,
+                    new RectangleF(x, y, width, 22), center);
+                y += 32;
+
+                // Receipt information
+                g.DrawString("Receipt #: " + sale.Id, normalFont,
+                    Brushes.Black, x, y);
+                y += lineHeight;
+
+                g.DrawString("Date: " + sale.Date.ToString("yyyy-MM-dd HH:mm"),
+                    normalFont, Brushes.Black, x, y);
+                y += lineHeight;
+
+                g.DrawString("Cashier: " + sale.Cashier,
+                    normalFont, Brushes.Black, x, y);
+                y += lineHeight;
+
+                g.DrawString("Payment: " + sale.PaymentMethod,
+                    normalFont, Brushes.Black, x, y);
+                y += 30;
+
+                // Separator
+                g.DrawLine(Pens.Black, x, y, right, y);
+                y += 12;
+
+                // Products
+                foreach (SaleLine line in sale.Items)
+                {
+                    g.DrawString(line.ProductName, boldFont,
+                        Brushes.Black, new RectangleF(x, y, width, 40));
+                    y += lineHeight;
+
+                    string details = line.Quantity + " x " +
+                        line.UnitPrice.ToString("N2");
+
+                    g.DrawString(details, normalFont,
+                        Brushes.Black, x + 5, y);
+
+                    g.DrawString(line.LineTotal.ToString("N2"),
+                        normalFont, Brushes.Black,
+                        new RectangleF(x, y, width, lineHeight),
+                        rightAlign);
+
+                    y += 32;
                 }
-                y += step;
-                e.Graphics.DrawString("Subtotal: " + sale.Subtotal.ToString("N2"), font, Brushes.Black, x, y); y += step;
-                e.Graphics.DrawString("Discount: " + sale.Discount.ToString("N2"), font, Brushes.Black, x, y); y += step;
-                e.Graphics.DrawString("TOTAL:    " + sale.Total.ToString("N2"), bold, Brushes.Black, x, y); y += step + 6;
-                e.Graphics.DrawString("Received: " + sale.Received.ToString("N2") + "   Change: " + sale.Change.ToString("N2"),
-                    font, Brushes.Black, x, y); y += step;
-                e.Graphics.DrawString("Thank you for shopping!", font, Brushes.Black, x, y);
+
+                // Separator
+                g.DrawLine(Pens.Black, x, y, right, y);
+                y += 15;
+
+                // Subtotal
+                g.DrawString("Subtotal:", normalFont, Brushes.Black, x, y);
+                g.DrawString(sale.Subtotal.ToString("N2"),
+                    normalFont, Brushes.Black,
+                    new RectangleF(x, y, width, lineHeight), rightAlign);
+                y += lineHeight;
+
+                // Discount
+                g.DrawString("Discount:", normalFont, Brushes.Black, x, y);
+                g.DrawString(sale.Discount.ToString("N2"),
+                    normalFont, Brushes.Black,
+                    new RectangleF(x, y, width, lineHeight), rightAlign);
+                y += 28;
+
+                // Total
+                g.DrawLine(Pens.Black, x, y, right, y);
+                y += 12;
+
+                g.DrawString("TOTAL:", boldFont, Brushes.Black, x, y);
+                g.DrawString(sale.Total.ToString("N2"),
+                    boldFont, Brushes.Black,
+                    new RectangleF(x, y, width, lineHeight), rightAlign);
+                y += 32;
+
+                // Received
+                g.DrawString("Received:", normalFont, Brushes.Black, x, y);
+                g.DrawString(sale.Received.ToString("N2"),
+                    normalFont, Brushes.Black,
+                    new RectangleF(x, y, width, lineHeight), rightAlign);
+                y += lineHeight;
+
+                // Change
+                g.DrawString("Change:", normalFont, Brushes.Black, x, y);
+                g.DrawString(sale.Change.ToString("N2"),
+                    normalFont, Brushes.Black,
+                    new RectangleF(x, y, width, lineHeight), rightAlign);
+                y += 32;
+
+                g.DrawLine(Pens.Black, x, y, right, y);
+                y += 25;
+
+                // Footer
+                g.DrawString("Thank you for shopping!",
+                    normalFont, Brushes.Black,
+                    new RectangleF(x, y, width, 30), center);
+
                 e.HasMorePages = false;
-                printIndex = 0;
             }
         }
 
