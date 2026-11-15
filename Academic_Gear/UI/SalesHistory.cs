@@ -1,7 +1,8 @@
+using BusinessLogic.Repository;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
-using BusinessLogic.Repository;
 
 namespace UI
 {
@@ -11,7 +12,13 @@ namespace UI
 
         public SalesHistory()
         {
+
             InitializeComponent();
+            
+            //search bar
+            txtSearchProduct.Text = "Search by Product Name...";
+            txtSearchProduct.ForeColor = Color.Black;
+
             dgSalesHistory.ReadOnly = true;
             dgSalesHistory.AllowUserToAddRows = false;
             dgSalesHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -25,10 +32,9 @@ namespace UI
             btnBack.Click += (s, e) => Close();
             btnSearchPN.Click += (s, e) => LoadSales();
             txtSearchProduct.TextChanged += (s, e) => LoadSales();
-            txtSearchProduct.Enter += (s, e) =>
-            {
-                if (txtSearchProduct.Text == "Search by product name...") txtSearchProduct.Clear();
-            };
+            txtSearchProduct.Enter += txtSearchProduct_Enter;
+            txtSearchProduct.Leave += txtSearchProduct_Leave;
+
             cmbPayment.SelectedIndexChanged += (s, e) => LoadSales();
             dtSalesHistory.ValueChanged += (s, e) => LoadSales();
             dgSalesHistory.CellDoubleClick += OpenReceipt;
@@ -40,7 +46,12 @@ namespace UI
             try
             {
                 DataTable table = sales.GetHistoryLines();
-                string search = txtSearchProduct.Text == "Search by product name..." ? "" : txtSearchProduct.Text.Trim();
+                string search = txtSearchProduct.Text.Trim();
+
+                if (search == "Search by Product Name...")
+                {
+                    search = "";
+                }
                 string method = cmbPayment.SelectedIndex <= 0 ? "" : cmbPayment.SelectedItem.ToString();
                 dgSalesHistory.Rows.Clear();
                 foreach (DataRow data in table.Rows)
@@ -77,6 +88,25 @@ namespace UI
                 using (var form = new Receipt(id)) form.ShowDialog(this);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Receipt Error"); }
+        }
+
+        private void txtSearchProduct_Enter(object sender, EventArgs e)
+        {
+            if (txtSearchProduct.Text == "Search by Product Name...")
+            {
+                txtSearchProduct.Text = "";
+                txtSearchProduct.ForeColor = Color.Black;
+            }
+        }
+        
+
+        private void txtSearchProduct_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSearchProduct.Text))
+            {
+                txtSearchProduct.Text = "Search by Product Name...";
+                txtSearchProduct.ForeColor = Color.Black;
+            }
         }
     }
 }

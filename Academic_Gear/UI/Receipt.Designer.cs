@@ -17,6 +17,10 @@
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -33,10 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvReceipt = new System.Windows.Forms.DataGridView();
-            this.clmProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblAcademicGear = new System.Windows.Forms.Label();
@@ -46,11 +46,18 @@
             this.lblCashier = new System.Windows.Forms.Label();
             this.lblCashierName = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
+            this.clmProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceipt)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnCancel
+            // 
             this.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(238, 457);
@@ -61,6 +68,9 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnPrint
+            // 
             this.btnPrint.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(84, 457);
@@ -71,6 +81,9 @@
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // panel1
+            // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.lblPayMethod);
             this.panel1.Controls.Add(this.lblNumChange);
@@ -89,6 +102,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(416, 84);
             this.panel1.TabIndex = 59;
+            // 
+            // lblPayMethod
+            // 
             this.lblPayMethod.AutoSize = true;
             this.lblPayMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPayMethod.Location = new System.Drawing.Point(148, 62);
@@ -97,6 +113,9 @@
             this.lblPayMethod.Size = new System.Drawing.Size(33, 17);
             this.lblPayMethod.TabIndex = 54;
             this.lblPayMethod.Text = ".....";
+            // 
+            // lblNumChange
+            // 
             this.lblNumChange.AutoSize = true;
             this.lblNumChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumChange.Location = new System.Drawing.Point(298, 34);
@@ -105,6 +124,9 @@
             this.lblNumChange.Size = new System.Drawing.Size(49, 17);
             this.lblNumChange.TabIndex = 53;
             this.lblNumChange.Text = "00.00";
+            // 
+            // lblNumCash
+            // 
             this.lblNumCash.AutoSize = true;
             this.lblNumCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumCash.Location = new System.Drawing.Point(298, 7);
@@ -113,6 +135,9 @@
             this.lblNumCash.Size = new System.Drawing.Size(49, 17);
             this.lblNumCash.TabIndex = 52;
             this.lblNumCash.Text = "00.00";
+            // 
+            // lblNumDiscount
+            // 
             this.lblNumDiscount.AutoSize = true;
             this.lblNumDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumDiscount.Location = new System.Drawing.Point(148, 34);
@@ -121,6 +146,9 @@
             this.lblNumDiscount.Size = new System.Drawing.Size(49, 17);
             this.lblNumDiscount.TabIndex = 51;
             this.lblNumDiscount.Text = "00.00";
+            // 
+            // lblNumTotalAmount
+            // 
             this.lblNumTotalAmount.AutoSize = true;
             this.lblNumTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumTotalAmount.Location = new System.Drawing.Point(148, 7);
@@ -129,6 +157,9 @@
             this.lblNumTotalAmount.Size = new System.Drawing.Size(49, 17);
             this.lblNumTotalAmount.TabIndex = 48;
             this.lblNumTotalAmount.Text = "00.00";
+            // 
+            // lblCash
+            // 
             this.lblCash.AutoSize = true;
             this.lblCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCash.Location = new System.Drawing.Point(220, 7);
@@ -137,6 +168,9 @@
             this.lblCash.Size = new System.Drawing.Size(49, 17);
             this.lblCash.TabIndex = 50;
             this.lblCash.Text = "Cash:";
+            // 
+            // lblChange
+            // 
             this.lblChange.AutoSize = true;
             this.lblChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChange.Location = new System.Drawing.Point(220, 34);
@@ -145,6 +179,9 @@
             this.lblChange.Size = new System.Drawing.Size(68, 17);
             this.lblChange.TabIndex = 49;
             this.lblChange.Text = "Change:";
+            // 
+            // lblPaymentMethod
+            // 
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaymentMethod.Location = new System.Drawing.Point(15, 62);
@@ -153,6 +190,9 @@
             this.lblPaymentMethod.Size = new System.Drawing.Size(133, 17);
             this.lblPaymentMethod.TabIndex = 49;
             this.lblPaymentMethod.Text = "Payment Method:";
+            // 
+            // lblDiscount
+            // 
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiscount.Location = new System.Drawing.Point(15, 34);
@@ -161,6 +201,9 @@
             this.lblDiscount.Size = new System.Drawing.Size(76, 17);
             this.lblDiscount.TabIndex = 49;
             this.lblDiscount.Text = "Discount:";
+            // 
+            // lblTotalAmount
+            // 
             this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalAmount.Location = new System.Drawing.Point(13, 7);
@@ -169,6 +212,9 @@
             this.lblTotalAmount.Size = new System.Drawing.Size(109, 17);
             this.lblTotalAmount.TabIndex = 48;
             this.lblTotalAmount.Text = "Total Amount:";
+            // 
+            // label1
+            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(998, 32);
@@ -177,6 +223,9 @@
             this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "Cashier";
+            // 
+            // label4
+            // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(972, 15);
@@ -185,35 +234,35 @@
             this.label4.Size = new System.Drawing.Size(103, 17);
             this.label4.TabIndex = 2;
             this.label4.Text = "CASHIERACC";
+            // 
+            // dgvReceipt
+            // 
+            this.dgvReceipt.AllowUserToAddRows = false;
+            this.dgvReceipt.AllowUserToDeleteRows = false;
+            this.dgvReceipt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReceipt.BackgroundColor = System.Drawing.Color.White;
+            this.dgvReceipt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvReceipt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvReceipt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReceipt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmProductName,
             this.clmQty,
             this.clmPrice,
             this.clmTotal});
-            this.dgvReceipt.Location = new System.Drawing.Point(16, 129);
+            this.dgvReceipt.Location = new System.Drawing.Point(16, 131);
             this.dgvReceipt.Margin = new System.Windows.Forms.Padding(2);
             this.dgvReceipt.Name = "dgvReceipt";
+            this.dgvReceipt.ReadOnly = true;
+            this.dgvReceipt.RowHeadersVisible = false;
             this.dgvReceipt.RowHeadersWidth = 51;
             this.dgvReceipt.RowTemplate.Height = 24;
-            this.dgvReceipt.Size = new System.Drawing.Size(416, 228);
+            this.dgvReceipt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvReceipt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReceipt.Size = new System.Drawing.Size(416, 226);
             this.dgvReceipt.TabIndex = 60;
-            this.clmProductName.HeaderText = "PRODUCT NAME";
-            this.clmProductName.MinimumWidth = 6;
-            this.clmProductName.Name = "clmProductName";
-            this.clmProductName.Width = 125;
-            this.clmQty.HeaderText = "QTY";
-            this.clmQty.MinimumWidth = 6;
-            this.clmQty.Name = "clmQty";
-            this.clmQty.Width = 125;
-            this.clmPrice.HeaderText = "PRICE";
-            this.clmPrice.MinimumWidth = 6;
-            this.clmPrice.Name = "clmPrice";
-            this.clmPrice.Width = 125;
-            this.clmTotal.HeaderText = "TOTAL";
-            this.clmTotal.MinimumWidth = 6;
-            this.clmTotal.Name = "clmTotal";
-            this.clmTotal.Width = 125;
+            // 
+            // panel3
+            // 
             this.panel3.BackColor = System.Drawing.Color.Silver;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.lblAcademicGear);
@@ -223,6 +272,9 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(416, 50);
             this.panel3.TabIndex = 58;
+            // 
+            // label2
+            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(998, 32);
@@ -231,6 +283,9 @@
             this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "Cashier";
+            // 
+            // lblAcademicGear
+            // 
             this.lblAcademicGear.AutoSize = true;
             this.lblAcademicGear.Font = new System.Drawing.Font("Copperplate Gothic Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAcademicGear.Location = new System.Drawing.Point(115, 13);
@@ -239,6 +294,9 @@
             this.lblAcademicGear.Size = new System.Drawing.Size(195, 24);
             this.lblAcademicGear.TabIndex = 0;
             this.lblAcademicGear.Text = "Academic Gear";
+            // 
+            // label5
+            // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(972, 15);
@@ -247,6 +305,9 @@
             this.label5.Size = new System.Drawing.Size(103, 17);
             this.label5.TabIndex = 2;
             this.label5.Text = "CASHIERACC";
+            // 
+            // panel4
+            // 
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.dtReceipt);
             this.panel4.Controls.Add(this.lblCashier);
@@ -257,11 +318,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(416, 72);
             this.panel4.TabIndex = 57;
+            // 
+            // dtReceipt
+            // 
             this.dtReceipt.Location = new System.Drawing.Point(130, 11);
             this.dtReceipt.Margin = new System.Windows.Forms.Padding(2);
             this.dtReceipt.Name = "dtReceipt";
             this.dtReceipt.Size = new System.Drawing.Size(200, 20);
             this.dtReceipt.TabIndex = 47;
+            // 
+            // lblCashier
+            // 
             this.lblCashier.AutoSize = true;
             this.lblCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCashier.Location = new System.Drawing.Point(13, 41);
@@ -270,6 +337,9 @@
             this.lblCashier.Size = new System.Drawing.Size(68, 17);
             this.lblCashier.TabIndex = 46;
             this.lblCashier.Text = "Cashier:";
+            // 
+            // lblCashierName
+            // 
             this.lblCashierName.AutoSize = true;
             this.lblCashierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCashierName.Location = new System.Drawing.Point(128, 41);
@@ -278,6 +348,9 @@
             this.lblCashierName.Size = new System.Drawing.Size(33, 17);
             this.lblCashierName.TabIndex = 45;
             this.lblCashierName.Text = ".....";
+            // 
+            // lblDateTime
+            // 
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.Location = new System.Drawing.Point(13, 11);
@@ -286,9 +359,52 @@
             this.lblDateTime.Size = new System.Drawing.Size(119, 17);
             this.lblDateTime.TabIndex = 44;
             this.lblDateTime.Text = "Date and Time:";
+            // 
+            // clmProductName
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.clmProductName.DefaultCellStyle = dataGridViewCellStyle13;
+            this.clmProductName.FillWeight = 95.42435F;
+            this.clmProductName.HeaderText = "PRODUCT NAME";
+            this.clmProductName.MinimumWidth = 6;
+            this.clmProductName.Name = "clmProductName";
+            this.clmProductName.ReadOnly = true;
+            // 
+            // clmQty
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmQty.DefaultCellStyle = dataGridViewCellStyle14;
+            this.clmQty.FillWeight = 35.0048F;
+            this.clmQty.HeaderText = "QTY";
+            this.clmQty.MinimumWidth = 6;
+            this.clmQty.Name = "clmQty";
+            this.clmQty.ReadOnly = true;
+            // 
+            // clmPrice
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmPrice.DefaultCellStyle = dataGridViewCellStyle15;
+            this.clmPrice.FillWeight = 96.98203F;
+            this.clmPrice.HeaderText = "PRICE";
+            this.clmPrice.MinimumWidth = 6;
+            this.clmPrice.Name = "clmPrice";
+            this.clmPrice.ReadOnly = true;
+            // 
+            // clmTotal
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotal.DefaultCellStyle = dataGridViewCellStyle16;
+            this.clmTotal.FillWeight = 172.5888F;
+            this.clmTotal.HeaderText = "TOTAL";
+            this.clmTotal.MinimumWidth = 6;
+            this.clmTotal.Name = "clmTotal";
+            this.clmTotal.ReadOnly = true;
+            // 
+            // Receipt
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 507);
+            this.ClientSize = new System.Drawing.Size(445, 521);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.panel1);
@@ -327,10 +443,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvReceipt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblAcademicGear;
@@ -340,5 +452,9 @@
         private System.Windows.Forms.Label lblCashier;
         private System.Windows.Forms.Label lblCashierName;
         private System.Windows.Forms.Label lblDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
     }
 }
