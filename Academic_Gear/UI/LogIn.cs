@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Windows.Forms;
 using BusinessLogic.Repository;
@@ -107,7 +107,8 @@ namespace UI
                     MessageBoxIcon.Information);
 
                 txtPassword.Clear();
-
+                Session.Username = username;
+                Session.Role = role;
                 dashboard.Show();
                 this.Hide();
             }

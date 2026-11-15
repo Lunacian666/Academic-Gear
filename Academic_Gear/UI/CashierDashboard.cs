@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,61 +6,48 @@ namespace UI
 {
     public partial class CashierDashboard : Form
     {
-        private bool isLoggingOut = false;
+        private bool loggingOut;
 
         public CashierDashboard()
         {
             InitializeComponent();
-
-            this.FormClosed += CashierDashboard_FormClosed;
-        }
-
-        private void btnLogout_Click(
-            object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to logout?",
-                "Confirm Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            FormClosed += CashierDashboard_FormClosed;
+            btnProduct.Click += (s, e) => OpenChild(new StockAvailability());
+            btnReceipt.Click += (s, e) => OpenChild(new SearchReceipt());
+            btnSalesHistory.Click += (s, e) => OpenChild(new SalesHistory());
+            btnManageAccount.Click += (s, e) => OpenChild(new ManageAccountCashier());
+            btnHome.Click += (s, e) => { Show(); lblHome.Focus(); };
+            Shown += (s, e) =>
             {
-                LogInAdmin login =
-                    Application.OpenForms
-                    .OfType<LogInAdmin>()
-                    .FirstOrDefault();
-
-                if (login != null)
-                {
-                    isLoggingOut = true;
-                    login.Show();
-                    this.Close();
-                }
-            }
-        }
-
-        private void btnPOS_Click(
-            object sender, EventArgs e)
-        {
-            PointOfSale posForm = new PointOfSale();
-
-            posForm.FormClosed += (s, args) =>
-            {
-                this.Show();
+                lblCashierAcc.Text = Session.Username ?? "Cashier";
+                lblWelcomeCashier.Text = "Welcome, " + (Session.Username ?? "Cashier");
             };
-
-            posForm.Show();
-            this.Hide();
         }
 
-        private void CashierDashboard_FormClosed(
-            object sender, FormClosedEventArgs e)
+        private void OpenChild(Form child)
         {
-            if (!isLoggingOut)
-            {
-                Application.Exit();
-            }
+            child.FormClosed += (s, e) => { if (!IsDisposed) Show(); };
+            child.Show();
+            Hide();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Log out?", "Confirm Logout", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes) return;
+            LogInAdmin login = Application.OpenForms.OfType<LogInAdmin>().FirstOrDefault();
+            if (login == null) { Application.Exit(); return; }
+            loggingOut = true;
+            Session.Clear();
+            login.Show();
+            Close();
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e) { OpenChild(new PointOfSale()); }
+
+        private void CashierDashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!loggingOut) Application.Exit();
         }
     }
 }

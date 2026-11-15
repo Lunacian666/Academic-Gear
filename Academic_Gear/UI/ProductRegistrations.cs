@@ -1,321 +1,129 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
+using System.Globalization;
 using System.Windows.Forms;
-using System.Security.Cryptography;
+using BusinessLogic.Repository;
 
 namespace UI
 {
     public partial class ProductRegistrations : Form
     {
-        private ProductItem productBeingEdited = null;
-        private bool isLoadingProduct = false;
-        public ProductRegistrations()
+        private readonly ProductRepo products = new ProductRepo();
+        private readonly int editingId;
+        private bool loading;
+        private readonly string[] units = { "Piece (pc)", "Pack", "Ream", "Box", "Set", "Pad", "Roll", "Bottle", "Tube", "Sheet", "Bundle", "Pair" };
+
+        public ProductRegistrations() : this(0) { }
+
+        public ProductRegistrations(int productId)
         {
+            editingId = productId;
             InitializeComponent();
-
-            cmbCategory.Items.Clear();
-
-            //Available products sa categories
-            cmbCategory.Items.Add("Writing Materials");
-            cmbCategory.Items.Add("Art Materials");
-            cmbCategory.Items.Add("Folders and Envelopes");
-            cmbCategory.Items.Add("School Supplies");
-            cmbCategory.Items.Add("Office Supplies");
-            cmbCategory.Items.Add("Paper Products");
-
-            //para maka select ang user sa available na options
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCategory.SelectedIndexChanged += cmbCategory_SelectedIndexChanged;
-
+            cmbUnitPerMeasure.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbUnitPerMeasure.Items.Clear();
-
-            cmbUnitPerMeasure.Items.Add("Piece (pc)");
-            cmbUnitPerMeasure.Items.Add("Pack");
-            cmbUnitPerMeasure.Items.Add("Ream");
-            cmbUnitPerMeasure.Items.Add("Box");
-            cmbUnitPerMeasure.Items.Add("Set");
-            cmbUnitPerMeasure.Items.Add("Pad");
-            cmbUnitPerMeasure.Items.Add("Roll");
-            cmbUnitPerMeasure.Items.Add("Bottle");
-            cmbUnitPerMeasure.Items.Add("Tube");
-            cmbUnitPerMeasure.Items.Add("Sheet");
-            cmbUnitPerMeasure.Items.Add("Bundle");
-            cmbUnitPerMeasure.Items.Add("Pair");
-
-            cmbUnitPerMeasure.SelectedIndex = 1;
-
-            SetupPlaceholder(txtProductName, "Enter product name");
-            SetupPlaceholder(txtPrice, "Enter price");
-            SetupPlaceholder(txtQuantity, "Enter quantity");
+            cmbUnitPerMeasure.Items.AddRange(units);
+            cmbUnitPerMeasure.SelectedIndex = 0;
+            txtProductCode.ReadOnly = true;
+            cmbCategory.SelectedIndexChanged += (s, e) => { if (!loading && editingId == 0) GenerateCode(); };
+            Shown += (s, e) => LoadRegistration();
         }
 
-        public ProductRegistrations(ProductItem product): this()
+        private void LoadRegistration()
         {
-            isLoadingProduct = true;
-            productBeingEdited = product;
-
-            //Dinidisplay ang existing product info
-            txtProductCode.Text = product.ProductCode;
-            txtProductName.Text = product.ProductName;
-            cmbCategory.Text = product.Category;
-            cmbUnitPerMeasure.Text = product.UnitPerMeasure;
-            txtPrice.Text = product.Price.ToString();
-            txtQuantity.Text = product.Quantity.ToString();
-
-            isLoadingProduct = false;
-
-        }
-
-        private void SetupPlaceholder(TextBox txt, string placeholder)
-        {
-            // Set initial text and enforce black text color
-            txt.Text = placeholder;
-            txt.ForeColor = Color.Black;
-
-            txt.Enter += (sender, e) =>
+            try
             {
-                // Clear text when clicked
-                if (txt.Text == placeholder)
+                loading = true;
+                cmbCategory.Items.Clear();
+                foreach (CategoryInfo category in products.GetCategories()) cmbCategory.Items.Add(category);
+                cmbCategory.SelectedIndex = -1;
+                if (editingId > 0)
                 {
-                    txt.Text = "";
-                    txt.ForeColor = Color.Black;
+                    ProductInfo product = products.GetProduct(editingId);
+                    if (product == null) { MessageBox.Show("Product no longer exists."); Close(); return; }
+                    txtProductCode.Text = product.ProductCode;
+                    txtProductName.Text = product.ProductName;
+                    txtPrice.Text = product.Price.ToString("0.00");
+                    txtQuantity.Text = product.Quantity.ToString();
+                    for (int i = 0; i < cmbCategory.Items.Count; i++)
+                        if (((CategoryInfo)cmbCategory.Items[i]).Id == product.CategoryId) cmbCategory.SelectedIndex = i;
+                    if (!cmbUnitPerMeasure.Items.Contains(product.UnitOfMeasure))
+                        cmbUnitPerMeasure.Items.Add(product.UnitOfMeasure);
+                    cmbUnitPerMeasure.SelectedItem = product.UnitOfMeasure;
+                    lblProductRegistration.Text = "Edit Product";
+                    btnSave.Text = "Update";
                 }
-            };
-
-            txt.Leave += (sender, e) =>
-            {
-                // Restore placeholder if left empty
-                if (string.IsNullOrWhiteSpace(txt.Text))
+                else
                 {
-                    txt.Text = placeholder;
-                    txt.ForeColor = Color.Black;
-                }
-            };
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to reset all fields?",
-                "Confirm Reset",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                ResetFields(this);
-            }
-        }
-
-        private void ResetFields(Control control)
-        {
-            foreach (Control child in control.Controls)
-            {
-                if (child is TextBox textBox)
-                {
-                    // Restore original default text
-                    switch (textBox.Name)
-                    {
-                        case "txtPrice":
-                            textBox.Text = "Enter price";
-                            break;
-
-                        case "txtProductName":
-                            textBox.Text = "Enter product name";
-                            break;
-
-                        case "txtProductCode":
-                            textBox.Text = "Enter product code";
-                            break;
-
-                        case "txtQuantity":
-                            textBox.Text = "Enter quantity";
-                            break;
-                    }
-                }
-                else if (child is ComboBox comboBox)
-                {
-                    comboBox.SelectedIndex = -1;
-                    comboBox.Text = "Select Category";
-                }
-
-                // Handle controls inside panels and group boxes
-                if (child.HasChildren)
-                {
-                    ResetFields(child);
+                    txtProductName.Clear();
+                    txtPrice.Clear();
+                    txtQuantity.Clear();
+                    txtProductCode.Clear();
                 }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Database Error"); }
+            finally { loading = false; }
+        }
+
+        private void GenerateCode()
+        {
+            CategoryInfo category = cmbCategory.SelectedItem as CategoryInfo;
+            if (category == null) { txtProductCode.Clear(); return; }
+            string name = category.Name;
+            string prefix = name == "Writing Materials" ? "WRT" :
+                name == "Art Materials" ? "ART" : name == "Folders and Envelopes" ? "FDE" :
+                name == "School Supplies" ? "SCH" : name == "Office Supplies" ? "OFF" : "PPR";
+            txtProductCode.Text = prefix + "-" + DateTime.Now.ToString("yyyyMMdd") + Guid.NewGuid().ToString("N").Substring(0, 8).ToUpperInvariant();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //input sa Category kukunin
-            string category = cmbCategory.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(category))
-            {
-                MessageBox.Show("Please select a category.");
-                cmbCategory.Focus();
-                return;
-            }
-
-            //chinecheck kung nakapag generate na ng code ang system
-            if (string.IsNullOrWhiteSpace(txtProductCode.Text))
-            {
-                MessageBox.Show("Unable to generate Product Code.");
-                GenerateProductCode();
-                return;
-            }
-
-            string unit = cmbUnitPerMeasure.SelectedItem?.ToString();
-            if (string.IsNullOrWhiteSpace(unit))
-            {
-                MessageBox.Show("Please select a unit per measure.");
-                cmbUnitPerMeasure.Focus();
-                return;
-            }
-
+            CategoryInfo category = cmbCategory.SelectedItem as CategoryInfo;
+            string unit = cmbUnitPerMeasure.SelectedItem as string;
+            string name = txtProductName.Text.Trim();
             decimal price;
-            if (string.IsNullOrWhiteSpace(txtPrice.Text) ||
-            txtPrice.Text == "Enter price")
+            int stock;
+            if (category == null || string.IsNullOrWhiteSpace(name) || name.Length > 100 ||
+                string.IsNullOrEmpty(unit) || string.IsNullOrWhiteSpace(txtProductCode.Text) ||
+                !decimal.TryParse(txtPrice.Text, NumberStyles.Number, CultureInfo.CurrentCulture, out price) ||
+                price < 0 || price > 9999999999999999m ||
+                !int.TryParse(txtQuantity.Text.Trim(), out stock) || stock < 0)
             {
-                MessageBox.Show("Please input a price.");
-                txtPrice.Focus();
+                MessageBox.Show("Enter valid product name, category, unit, price and stock.", "Product Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            if (!decimal.TryParse(txtPrice.Text, out price) || price < 0)
+            try
             {
-                MessageBox.Show("Please enter a valid price.");
-                txtPrice.Focus();
-                return;
-            }
-
-            string productName = txtProductName.Text.Trim();
-            if (string.IsNullOrWhiteSpace(txtProductName.Text) ||
-                productName == "Enter product name")
-            {
-                MessageBox.Show("Please input a product name.");
-                txtProductName.Focus();
-                return;
-            }
-
-            int quantity;
-            if (string.IsNullOrWhiteSpace(txtQuantity.Text) ||
-                txtQuantity.Text == "Enter quantity")
-            {
-                MessageBox.Show("Please input a quantity.");
-                txtQuantity.Focus();
-                return;
-            }
-
-            if (!int.TryParse(txtQuantity.Text, out quantity) || quantity < 0)
-            {
-                MessageBox.Show("Please enter a valid quantity.");
-                txtQuantity.Focus();
-                return;
-            }
-
-            if (productBeingEdited != null)
-            {
-                //Updatting existing product
-                productBeingEdited.ProductCode = txtProductCode.Text.Trim();
-                productBeingEdited.ProductName = productName;
-                productBeingEdited.Category = category;
-                productBeingEdited.UnitPerMeasure = unit;
-                productBeingEdited.Price = price;
-                productBeingEdited.Quantity = quantity;
-
-                MessageBox.Show("Product updated successfully!");
-            }
-
-            else
-            {
-
-                ProductItem newProduct = new ProductItem()
+                products.SaveProduct(new ProductInfo
                 {
+                    Id = editingId,
                     ProductCode = txtProductCode.Text.Trim(),
-                    ProductName = productName,
-                    Category = category,
-                    UnitPerMeasure = unit,
+                    ProductName = name,
+                    CategoryId = category.Id,
+                    UnitOfMeasure = unit,
                     Price = price,
-                    Quantity = quantity
-                };
-                ProductData.Products.Add(newProduct);
-                MessageBox.Show("Product registered successfully!", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Quantity = stock
+                });
+                MessageBox.Show(editingId > 0 ? "Product updated." : "Product registered.", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
-            this.Close();
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show(ex.Number == 2601 || ex.Number == 2627 ? "Product code already exists." : ex.Message,
+                    "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e) { Close(); }
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            if(!isLoadingProduct)
+            if (MessageBox.Show("Reset the fields?", "Reset", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                GenerateProductCode();
+                LoadRegistration();
+                if (editingId == 0 && cmbCategory.SelectedItem != null) GenerateCode();
             }
-        }
-
-        private void GenerateProductCode()
-        {
-            //unique product code (date and time)
-            string category = cmbCategory.SelectedItem?.ToString();
-
-            if (string.IsNullOrWhiteSpace(category))
-            {
-                txtProductCode.Clear();
-                return;
-            }
-            //dinedetermine dito kung anong product code prefix ang pipiliin based sa category
-            string prefix = "";
-            switch (category)
-            {
-                case "Writing Materials":
-                    prefix = "WRT";
-                    break;
-
-                case "Art Materials":
-                    prefix = "ART";
-                    break;
-
-                case "Folders and Envelopes":
-                    prefix = "FDE";
-                    break;
-
-                case "School Supplies":
-                    prefix = "SCH";
-                    break;
-
-                case "Office Supplies":
-                    prefix = "OFF";
-                    break;
-
-                case "Paper Products":
-                    prefix = "PAP";
-                    break;
-
-                default: MessageBox.Show("Invalid category selected.");
-                    txtProductCode.Clear();
-                    return;
-            }
-            //PARA MAG GENERATE NG UNIQUE 4 DIGITS
-            string uniqueCode = Guid.NewGuid().ToString("N").Substring(0, 4).ToUpper();
-            //PAG GENERATE NG CODE 
-            string productCode = prefix + "-" + DateTime.Now.ToString("yyyyMMdd") + uniqueCode.ToString();
-            //DISPLAY NG GENERATED NA PRODUCT CODE
-            txtProductCode.Text = productCode;
-            txtProductCode.ReadOnly = true;
         }
     }
 }

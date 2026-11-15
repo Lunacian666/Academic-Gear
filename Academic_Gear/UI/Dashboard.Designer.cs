@@ -2,15 +2,8 @@
 {
     partial class Dashboard
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
@@ -46,9 +35,6 @@
             this.panelTop.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelTop
-            // 
             this.panelTop.BackColor = System.Drawing.Color.Silver;
             this.panelTop.Controls.Add(this.lblAdministrator);
             this.panelTop.Controls.Add(this.lblHome);
@@ -58,9 +44,6 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1260, 71);
             this.panelTop.TabIndex = 0;
-            // 
-            // lblAdministrator
-            // 
             this.lblAdministrator.AutoSize = true;
             this.lblAdministrator.Font = new System.Drawing.Font("Perpetua Titling MT", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdministrator.Location = new System.Drawing.Point(1107, 38);
@@ -68,9 +51,6 @@
             this.lblAdministrator.Size = new System.Drawing.Size(108, 15);
             this.lblAdministrator.TabIndex = 3;
             this.lblAdministrator.Text = "Administrator";
-            // 
-            // lblHome
-            // 
             this.lblHome.AutoSize = true;
             this.lblHome.Font = new System.Drawing.Font("Britannic Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHome.Location = new System.Drawing.Point(63, 16);
@@ -78,9 +58,6 @@
             this.lblHome.Size = new System.Drawing.Size(100, 37);
             this.lblHome.TabIndex = 0;
             this.lblHome.Text = "Home";
-            // 
-            // lblAdminAcc
-            // 
             this.lblAdminAcc.AutoSize = true;
             this.lblAdminAcc.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminAcc.Location = new System.Drawing.Point(1105, 16);
@@ -88,9 +65,6 @@
             this.lblAdminAcc.Size = new System.Drawing.Size(112, 21);
             this.lblAdminAcc.TabIndex = 2;
             this.lblAdminAcc.Text = "AdminAcc";
-            // 
-            // panelLeft
-            // 
             this.panelLeft.BackColor = System.Drawing.Color.Gainsboro;
             this.panelLeft.Controls.Add(this.btnManageAcc);
             this.panelLeft.Controls.Add(this.label2);
@@ -106,9 +80,6 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(267, 562);
             this.panelLeft.TabIndex = 1;
-            // 
-            // btnManageAcc
-            // 
             this.btnManageAcc.FlatAppearance.BorderSize = 0;
             this.btnManageAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,9 +91,6 @@
             this.btnManageAcc.Text = "Manage Account";
             this.btnManageAcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManageAcc.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
@@ -131,9 +99,6 @@
             this.label2.Size = new System.Drawing.Size(222, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "------------------------------";
-            // 
-            // btnSupplier
-            // 
             this.btnSupplier.FlatAppearance.BorderSize = 0;
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -145,9 +110,6 @@
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSupplier.UseVisualStyleBackColor = true;
-            // 
-            // btnLogout
-            // 
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,9 +121,6 @@
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnStockAvailability
-            // 
             this.btnStockAvailability.FlatAppearance.BorderSize = 0;
             this.btnStockAvailability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStockAvailability.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,9 +132,6 @@
             this.btnStockAvailability.Text = "Stock Availability";
             this.btnStockAvailability.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStockAvailability.UseVisualStyleBackColor = true;
-            // 
-            // btnHome
-            // 
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,9 +143,6 @@
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.UseVisualStyleBackColor = true;
-            // 
-            // btnSalesHistory
-            // 
             this.btnSalesHistory.FlatAppearance.BorderSize = 0;
             this.btnSalesHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalesHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,9 +155,6 @@
             this.btnSalesHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalesHistory.UseVisualStyleBackColor = true;
             this.btnSalesHistory.Click += new System.EventHandler(this.btnSalesHistory_Click);
-            // 
-            // lblInventory
-            // 
             this.lblInventory.FlatAppearance.BorderSize = 0;
             this.lblInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,9 +167,6 @@
             this.lblInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblInventory.UseVisualStyleBackColor = true;
             this.lblInventory.Click += new System.EventHandler(this.lblInventory_Click);
-            // 
-            // btnReports
-            // 
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,9 +178,6 @@
             this.btnReports.Text = "Reports";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.UseVisualStyleBackColor = true;
-            // 
-            // lblWelcomeAdmin
-            // 
             this.lblWelcomeAdmin.AutoSize = true;
             this.lblWelcomeAdmin.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcomeAdmin.Location = new System.Drawing.Point(625, 92);
@@ -242,9 +186,6 @@
             this.lblWelcomeAdmin.Size = new System.Drawing.Size(317, 52);
             this.lblWelcomeAdmin.TabIndex = 2;
             this.lblWelcomeAdmin.Text = "Welcome Admin";
-            // 
-            // Dashboard
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1256, 614);

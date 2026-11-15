@@ -1,6 +1,9 @@
+**/bin/
+**/obj/
 .vs/
-bin/
-obj/
-*.dbmdl
-*.jfm.dbmdl
-.jfm
+*.user
+*.suo
+*.mdf
+*.ldf
+*.ndf
+*.secrets.json

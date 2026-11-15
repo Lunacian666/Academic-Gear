@@ -46,6 +46,9 @@
     <Compile Include="LocalDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\UserRepo.cs" />
+    <Compile Include="Repository\ProductRepo.cs" />
+    <Compile Include="Repository\SalesRepo.cs" />
+    <Compile Include="Repository\SupplierRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />

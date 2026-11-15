@@ -2,15 +2,8 @@
 {
     partial class SalesHistory
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.dtSalesHistory = new System.Windows.Forms.DateTimePicker();
@@ -49,16 +38,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgSalesHistory)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dtSalesHistory
-            // 
             this.dtSalesHistory.Location = new System.Drawing.Point(461, 124);
             this.dtSalesHistory.Name = "dtSalesHistory";
             this.dtSalesHistory.Size = new System.Drawing.Size(231, 22);
             this.dtSalesHistory.TabIndex = 64;
-            // 
-            // dgSalesHistory
-            // 
             this.dgSalesHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSalesHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmProductName,
@@ -74,17 +57,11 @@
             this.dgSalesHistory.RowTemplate.Height = 24;
             this.dgSalesHistory.Size = new System.Drawing.Size(931, 558);
             this.dgSalesHistory.TabIndex = 63;
-            // 
-            // cmbPayment
-            // 
             this.cmbPayment.FormattingEnabled = true;
             this.cmbPayment.Location = new System.Drawing.Point(793, 122);
             this.cmbPayment.Name = "cmbPayment";
             this.cmbPayment.Size = new System.Drawing.Size(167, 24);
             this.cmbPayment.TabIndex = 62;
-            // 
-            // lblPayment
-            // 
             this.lblPayment.AutoSize = true;
             this.lblPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPayment.Location = new System.Drawing.Point(706, 123);
@@ -93,9 +70,6 @@
             this.lblPayment.TabIndex = 61;
             this.lblPayment.Text = "Payment";
             this.lblPayment.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblDate
-            // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.Location = new System.Drawing.Point(406, 125);
@@ -103,9 +77,6 @@
             this.lblDate.Size = new System.Drawing.Size(49, 20);
             this.lblDate.TabIndex = 60;
             this.lblDate.Text = "Date";
-            // 
-            // btnSearchPN
-            // 
             this.btnSearchPN.Location = new System.Drawing.Point(29, 120);
             this.btnSearchPN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearchPN.Name = "btnSearchPN";
@@ -113,9 +84,6 @@
             this.btnSearchPN.TabIndex = 59;
             this.btnSearchPN.Text = "Search";
             this.btnSearchPN.UseVisualStyleBackColor = true;
-            // 
-            // txtSearchProduct
-            // 
             this.txtSearchProduct.ForeColor = System.Drawing.Color.Silver;
             this.txtSearchProduct.Location = new System.Drawing.Point(118, 122);
             this.txtSearchProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -124,9 +92,6 @@
             this.txtSearchProduct.Size = new System.Drawing.Size(231, 23);
             this.txtSearchProduct.TabIndex = 58;
             this.txtSearchProduct.Text = "Search by Product Name....";
-            // 
-            // panel3
-            // 
             this.panel3.BackColor = System.Drawing.Color.Silver;
             this.panel3.Controls.Add(this.lblSalesHistory);
             this.panel3.Controls.Add(this.label2);
@@ -136,9 +101,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(963, 61);
             this.panel3.TabIndex = 57;
-            // 
-            // lblSalesHistory
-            // 
             this.lblSalesHistory.AutoSize = true;
             this.lblSalesHistory.Font = new System.Drawing.Font("Britannic Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSalesHistory.Location = new System.Drawing.Point(22, 14);
@@ -146,9 +108,6 @@
             this.lblSalesHistory.Size = new System.Drawing.Size(175, 31);
             this.lblSalesHistory.TabIndex = 4;
             this.lblSalesHistory.Text = "Sales History";
-            // 
-            // label2
-            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(1330, 39);
@@ -156,9 +115,6 @@
             this.label2.Size = new System.Drawing.Size(57, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Cashier";
-            // 
-            // label5
-            // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(1296, 19);
@@ -166,9 +122,6 @@
             this.label5.Size = new System.Drawing.Size(125, 21);
             this.label5.TabIndex = 2;
             this.label5.Text = "CASHIERACC";
-            // 
-            // btnBack
-            // 
             this.btnBack.Location = new System.Drawing.Point(12, 8);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
@@ -176,51 +129,30 @@
             this.btnBack.TabIndex = 65;
             this.btnBack.Text = "<- Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // clmProductName
-            // 
             this.clmProductName.HeaderText = "PRODUCT NAME";
             this.clmProductName.MinimumWidth = 6;
             this.clmProductName.Name = "clmProductName";
             this.clmProductName.Width = 125;
-            // 
-            // clmPrice
-            // 
             this.clmPrice.HeaderText = "PRICE";
             this.clmPrice.MinimumWidth = 6;
             this.clmPrice.Name = "clmPrice";
             this.clmPrice.Width = 125;
-            // 
-            // clmQty
-            // 
             this.clmQty.HeaderText = "QTY";
             this.clmQty.MinimumWidth = 6;
             this.clmQty.Name = "clmQty";
             this.clmQty.Width = 125;
-            // 
-            // clmTotal
-            // 
             this.clmTotal.HeaderText = "TOTAL";
             this.clmTotal.MinimumWidth = 6;
             this.clmTotal.Name = "clmTotal";
             this.clmTotal.Width = 125;
-            // 
-            // clmDate
-            // 
             this.clmDate.HeaderText = "DATE";
             this.clmDate.MinimumWidth = 6;
             this.clmDate.Name = "clmDate";
             this.clmDate.Width = 125;
-            // 
-            // clmPaymentMethod
-            // 
             this.clmPaymentMethod.HeaderText = "PAYMENT METHOD";
             this.clmPaymentMethod.MinimumWidth = 6;
             this.clmPaymentMethod.Name = "clmPaymentMethod";
             this.clmPaymentMethod.Width = 125;
-            // 
-            // SalesHistory
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 744);

@@ -1,226 +1,128 @@
-﻿using System;
+using System;
 using System.Linq;
-using System.ComponentModel;
 using System.Windows.Forms;
+using BusinessLogic.Repository;
 
 namespace UI
 {
     public partial class InventoryManagement : Form
     {
-            private BindingList<ProductItem> filteredProducts = new BindingList<ProductItem>();
+        private readonly ProductRepo products = new ProductRepo();
+        private bool loading;
+
         public InventoryManagement()
         {
             InitializeComponent();
-
-            SetUpActionButtons();
-            dgvProductManagement.CellContentClick += dgvProductManagement_CellContentClick;
-            
+            dgvProductManagement.ReadOnly = true;
             dgvProductManagement.AllowUserToAddRows = false;
+            dgvProductManagement.MultiSelect = false;
+            dgvProductManagement.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProductManagement.AutoGenerateColumns = false;
-            //kinoconnect ang datagrid sa shared na product list
-            dgvProductManagement.DataSource = filteredProducts;
-
-            //Load category options
-            LoadCategoryFilter();
-            //dinidisplay lahat ng products
-            RefreshProductGrid();
-
-            //pinagcoconnect abf searcg at category events
-            txtSearchProduct.TextChanged += txtSearchProduct_TextChanged;
-            cmbCategories.SelectedIndexChanged += cmbCategories_SelectedIndexChanged;
-        }
-         
-        private void SetUpActionButtons()
-        {
-            DataGridViewButtonColumn viewButton = new DataGridViewButtonColumn();
-            viewButton.Name = "colView";
-            viewButton.HeaderText = "VIEW";
-            viewButton.Text = "View";
-            viewButton.UseColumnTextForButtonValue = true;
-            viewButton.Width = 80;
-
-            DataGridViewButtonColumn addButton = new DataGridViewButtonColumn();
-            addButton.Name = "colAdd";
-            addButton.HeaderText = "ADD STOCK";
-            addButton.Text = "Add";
-            addButton.UseColumnTextForButtonValue= true;
-
-
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.Name = "colEdit";
-            editButton.HeaderText = "EDIT";
-            editButton.Text = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
-            editButton.Width = 80;
-
-            DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
-            deleteButton.Name = "colDelete";
-            deleteButton.HeaderText = "DELETE";
-            deleteButton.Text = "Delete";
-            deleteButton.UseColumnTextForButtonValue = true;
-            deleteButton.Width = 80;
-
-            dgvProductManagement.Columns.Add(viewButton);
-            dgvProductManagement.Columns.Add(addButton);
-            dgvProductManagement.Columns.Add(editButton);
-            dgvProductManagement.Columns.Add(deleteButton);
-
+            dgvProductManagement.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            AddAction("ViewProduct", "VIEW", "View");
+            AddAction("AddProductStock", "ADD STOCK", "Add Stock");
+            AddAction("EditProduct", "EDIT", "Edit");
+            AddAction("DeleteProduct", "DELETE", "Delete");
+            dgvProductManagement.CellContentClick += ProductClicked;
+            btnSearchPN.Click += (s, e) => LoadProducts();
+            txtSearchProduct.TextChanged += (s, e) => LoadProducts();
+            txtSearchProduct.Enter += (s, e) => { if (txtSearchProduct.Text == "Search by product name...") txtSearchProduct.Clear(); };
+            cmbCategories.SelectedIndexChanged += (s, e) => { if (!loading) LoadProducts(); };
+            Shown += (s, e) => Reload();
         }
 
-        private void txtSearchProduct_TextChanged(object sender, EventArgs e)
+        private void AddAction(string name, string header, string value)
         {
-            RefreshProductGrid();
-        }
-
-
-        private void LoadCategoryFilter()
-        {
-            cmbCategories.Items.Clear();
-            cmbCategories.Items.Add("All Categories");
-
-            var categories =  ProductData.Products.Select(p => p.Category).Where(c => !string.IsNullOrWhiteSpace(c)).Distinct().OrderBy(c => c);
-
-            foreach (var category in categories)
+            if (dgvProductManagement.Columns.Contains(name)) return;
+            dgvProductManagement.Columns.Add(new DataGridViewButtonColumn
             {
-                cmbCategories.Items.Add(category);
+                Name = name, HeaderText = header, Text = value, UseColumnTextForButtonValue = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            });
+        }
+
+        private void Reload()
+        {
+            try
+            {
+                loading = true;
+                string previous = (cmbCategories.SelectedItem as CategoryInfo)?.Name;
+                cmbCategories.Items.Clear();
+                cmbCategories.Items.Add("All Categories");
+                foreach (CategoryInfo category in products.GetCategories()) cmbCategories.Items.Add(category);
+                cmbCategories.SelectedIndex = 0;
+                if (!string.IsNullOrEmpty(previous))
+                    for (int i = 1; i < cmbCategories.Items.Count; i++)
+                        if ((cmbCategories.Items[i] as CategoryInfo).Name == previous) cmbCategories.SelectedIndex = i;
+                loading = false;
+                LoadProducts();
             }
-
-            cmbCategories.SelectedIndex = 0;
+            catch (Exception ex) { loading = false; ShowError(ex); }
         }
 
-        private void RefreshProductGrid()
+        private void LoadProducts()
         {
-
-            string searchText = txtSearchProduct.Text.Trim();
-            if (searchText == "Search by product name...")
+            if (loading) return;
+            try
             {
-                searchText = "";
-            }
-
-            string selectedCategory = cmbCategories.SelectedItem?.ToString() ?? "All Categories";
-           
-            var results = ProductData.Products.Where(p =>
-            {
-                bool matchSearch = p.ProductName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                p.ProductName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
-
-                bool matchesCategory = selectedCategory == "All Categories" || string.Equals(p.Category, selectedCategory, StringComparison.OrdinalIgnoreCase);
-
-                return matchSearch && matchesCategory;
-            }).ToList();
-
-            filteredProducts.RaiseListChangedEvents = false;
-            filteredProducts.Clear();
-
-            foreach (var product in results)
-            {
-                filteredProducts.Add(product);
-            }
-
-            filteredProducts.RaiseListChangedEvents = true;
-            filteredProducts.ResetBindings();
-        }
-
-            private void cmbCategories_SelectedIndexChanged(object sender, EventArgs e) {
-
-            RefreshProductGrid();
-        }
-
-        private void btnBack_Click(
-            object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnAddNewProduct_Click(
-            object sender, EventArgs e)
-        {
-            this.Hide();
-
-            ProductRegistrations productForm = new ProductRegistrations();
-
-            productForm.FormClosed += (s, args) =>
-            {
-                this.Show();
-                LoadCategoryFilter();
-                RefreshProductGrid();
-            };
-            productForm.Show();
-        }
-
-        private void dgvProductManagement_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-
-            ProductItem selectedProduct = dgvProductManagement.Rows[e.RowIndex].DataBoundItem as ProductItem;
-
-            if (selectedProduct == null)
-                return;
-
-            string columnName = dgvProductManagement.Columns[e.ColumnIndex].Name;
-
-            //VIEW BUTTON
-            if (columnName == "colView")
-            {
-                MessageBox.Show(
-                    "Product Code: " + selectedProduct.ProductCode +
-                    "\nProduct Name: " + selectedProduct.ProductName +
-                    "\nCategory: " + selectedProduct.Category +
-                    "\nUnit: " + selectedProduct.UnitPerMeasure +
-                    "\nPrice: " + selectedProduct.Price +
-                    "\nAvailable Stock: " + selectedProduct.Quantity,
-                    "Product Details");
-            }
-
-            //ADD BUTTON
-            else if (columnName == "colAdd")
-            {
-                AddStock addStock = new AddStock(selectedProduct);
-
-                if (addStock.ShowDialog() == DialogResult.OK)
+                string search = txtSearchProduct.Text == "Search by product name..." ? "" : txtSearchProduct.Text.Trim();
+                int? category = (cmbCategories.SelectedItem as CategoryInfo)?.Id;
+                dgvProductManagement.Rows.Clear();
+                foreach (ProductInfo product in products.GetProducts(search, category))
                 {
-                    RefreshProductGrid();
-                    MessageBox.Show(
-                        "Inventory updated successfully!",
-                        "Stock Updated",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }  
-            }
-
-            //EDIT BUTTON
-            else if (columnName == "colEdit")
-            {
-                this.Hide();
-
-                ProductRegistrations productForm = new ProductRegistrations(selectedProduct);
-
-                productForm.FormClosed += (s, args) =>
-                {
-                    this.Show();
-                    LoadCategoryFilter();
-                    RefreshProductGrid();
-                };
-
-                productForm.Show();
-            }
-
-            //DELETE BUTTON
-            else if (columnName == "colDelete")
-            {
-                DialogResult = MessageBox.Show(
-                    "Are you sure you want to delete" + selectedProduct.ProductName + "?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (DialogResult == DialogResult.Yes)
-                {
-                    ProductData.Products.Remove(selectedProduct);
-                    LoadCategoryFilter();
-                    RefreshProductGrid();
-                    MessageBox.Show("Product deleted successfully!");
+                    int row = dgvProductManagement.Rows.Add(product.ProductCode, product.ProductName,
+                        product.CategoryName, product.Price.ToString("N2"), product.Quantity,
+                        "View", "Add Stock", "Edit", "Delete");
+                    dgvProductManagement.Rows[row].Tag = product;
                 }
-
             }
+            catch (Exception ex) { ShowError(ex); }
+        }
 
+        private void ProductClicked(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            ProductInfo product = dgvProductManagement.Rows[e.RowIndex].Tag as ProductInfo;
+            if (product == null) return;
+            string action = dgvProductManagement.Columns[e.ColumnIndex].Name;
+            try
+            {
+                if (action == "ViewProduct")
+                    MessageBox.Show("Code: " + product.ProductCode + "\nName: " + product.ProductName +
+                        "\nCategory: " + product.CategoryName + "\nUnit: " + product.UnitOfMeasure +
+                        "\nPrice: " + product.Price.ToString("N2") + "\nStock: " + product.Quantity,
+                        "Product Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (action == "AddProductStock")
+                {
+                    using (var form = new AddStock(product))
+                        if (form.ShowDialog(this) == DialogResult.OK) LoadProducts();
+                }
+                else if (action == "EditProduct") OpenProduct(product.Id);
+                else if (action == "DeleteProduct")
+                {
+                    if (MessageBox.Show("Delete " + product.ProductName + "?", "Delete Product",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                    products.DeleteProduct(product.Id);
+                    LoadProducts();
+                }
+            }
+            catch (Exception ex) { ShowError(ex); }
+        }
+
+        private void OpenProduct(int id)
+        {
+            var form = new ProductRegistrations(id);
+            form.FormClosed += (s, e) => { Show(); Reload(); };
+            form.Show();
+            Hide();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e) { Close(); }
+        private void btnAddNewProduct_Click(object sender, EventArgs e) { OpenProduct(0); }
+
+        private static void ShowError(Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Inventory Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

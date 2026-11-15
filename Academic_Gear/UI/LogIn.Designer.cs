@@ -2,15 +2,8 @@
 {
     partial class LogInAdmin
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.btnLogIn = new System.Windows.Forms.Button();
@@ -36,9 +25,6 @@
             this.lblAcademicGear = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnLogIn
-            // 
             this.btnLogIn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnLogIn.ForeColor = System.Drawing.Color.Black;
             this.btnLogIn.Location = new System.Drawing.Point(297, 338);
@@ -49,25 +35,16 @@
             this.btnLogIn.Text = "Login";
             this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
-            // 
-            // txtUsername
-            // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(274, 212);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(322, 24);
             this.txtUsername.TabIndex = 3;
-            // 
-            // txtPassword
-            // 
             this.txtPassword.Location = new System.Drawing.Point(274, 286);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(322, 23);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // lblUsername
-            // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(270, 189);
@@ -75,9 +52,6 @@
             this.lblUsername.Size = new System.Drawing.Size(83, 20);
             this.lblUsername.TabIndex = 6;
             this.lblUsername.Text = "Username";
-            // 
-            // lblPass
-            // 
             this.lblPass.AutoSize = true;
             this.lblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPass.Location = new System.Drawing.Point(270, 263);
@@ -85,9 +59,6 @@
             this.lblPass.Size = new System.Drawing.Size(78, 20);
             this.lblPass.TabIndex = 7;
             this.lblPass.Text = "Password";
-            // 
-            // lblAcademicGear
-            // 
             this.lblAcademicGear.AutoSize = true;
             this.lblAcademicGear.BackColor = System.Drawing.Color.Transparent;
             this.lblAcademicGear.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,9 +68,6 @@
             this.lblAcademicGear.Size = new System.Drawing.Size(222, 40);
             this.lblAcademicGear.TabIndex = 8;
             this.lblAcademicGear.Text = "Academic Gear";
-            // 
-            // lblWelcome
-            // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.Location = new System.Drawing.Point(378, 115);
@@ -107,9 +75,6 @@
             this.lblWelcome.Size = new System.Drawing.Size(107, 20);
             this.lblWelcome.TabIndex = 2;
             this.lblWelcome.Text = "Welcome To";
-            // 
-            // LogInAdmin
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
