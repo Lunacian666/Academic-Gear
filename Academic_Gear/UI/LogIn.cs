@@ -27,6 +27,28 @@ namespace UI
         private void btnLogIn_Click(
             object sender, EventArgs e)
         {
+
+        }
+
+        private void LogIn_FormClosed(
+            object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void LogInAdmin_Load(object sender, EventArgs e)
+        {
+            panelLogin.Left = (this.ClientSize.Width - panelLogin.Width) / 2;
+            panelLogin.Top = (this.ClientSize.Height - panelLogin.Height) / 2;
+        }
+
+        private void panelLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogIn_Click_1(object sender, EventArgs e)
+        {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
@@ -123,10 +145,9 @@ namespace UI
             }
         }
 
-        private void LogIn_FormClosed(
-            object sender, FormClosedEventArgs e)
+        private void chkboxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            Application.Exit();
+            txtPassword.UseSystemPasswordChar = !chkboxShowPassword.Checked;
         }
     }
 }
