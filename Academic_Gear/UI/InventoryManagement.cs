@@ -29,6 +29,7 @@ namespace UI
             txtSearchProduct.Enter += (s, e) => { if (txtSearchProduct.Text == "Search by product name...") txtSearchProduct.Clear(); };
             cmbCategories.SelectedIndexChanged += (s, e) => { if (!loading) LoadProducts(); };
             Shown += (s, e) => Reload();
+            chkLowStock.CheckedChanged += (s, e) => LoadProducts();
         }
 
         private void AddAction(string name, string header, string value)
@@ -70,10 +71,25 @@ namespace UI
                 dgvProductManagement.Rows.Clear();
                 foreach (ProductInfo product in products.GetProducts(search, category))
                 {
-                    int row = dgvProductManagement.Rows.Add(product.ProductCode, product.ProductName,
-                        product.CategoryName, product.Price.ToString("N2"), product.Quantity,
-                        "View", "Add Stock", "Edit", "Delete");
-                    dgvProductManagement.Rows[row].Tag = product;
+                    var productList = products.GetProducts(search, category);
+
+                    if (chkLowStock.Checked)
+                    {
+                        productList = productList
+                            .Where(p => p.Quantity < 5)
+                            .ToList();
+                    }
+
+                    foreach(ProductInfo productInfo in productList)
+                    {
+                        int row = dgvProductManagement.Rows.Add(
+                            product.ProductCode,
+                            product.ProductName,
+                            product.CategoryName,
+                            product.Price.ToString("N2"),
+                            product.Quantity);
+                        dgvProductManagement.Rows[row].Tag = product; 
+                    }
                 }
             }
             catch (Exception ex) { ShowError(ex); }
@@ -118,11 +134,15 @@ namespace UI
         }
 
         private void btnBack_Click(object sender, EventArgs e) { Close(); }
-        private void btnAddNewProduct_Click(object sender, EventArgs e) { OpenProduct(0); }
 
         private static void ShowError(Exception ex)
         {
             MessageBox.Show(ex.Message, "Inventory Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
